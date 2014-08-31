@@ -1,3 +1,5 @@
-name: Your New Jekyll Site
+name: 妙音's blog
 markdown: redcarpet
 pygments: true
+baseurl: /blog
+#permalink: /:year/:month/:day/:title
