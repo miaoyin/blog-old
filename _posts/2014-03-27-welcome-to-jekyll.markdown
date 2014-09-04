@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2014-03-27 16:30:29
-categories: jekyll update
+categories: python
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
@@ -45,4 +45,31 @@ def main():
     pass
 <code>
 </pre>
+
+{% highlight python linenos %}
+def main():
+    pass
+{% endhighlight %}
+
+<h4>Category</h4>
+<ul>
+    {% for category in site.categories%}
+        <li>
+            <a href="/categories/{{category | first}}" title="view all posts">{{category | first}} {{category | last |size}}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+
+{% for category in site.categories %}
+<h2>{{ category | first }}(<span>{{ category | last | size }}</span>)</h2>
+<ul class="arc-list">
+{% for post in category.last %}
+<li>
+    {{ post.date | date:"%Y/%m/%d"}}
+    <a href="{{site.baseurl}}/{{ post.url }}">{{ post.title }}</a>
+</li>
+{% endfor %}
+</ul>
+{% endfor %}
 
