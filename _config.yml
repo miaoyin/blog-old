@@ -1,6 +1,5 @@
 name: 妙音's blog
-#markdown: redcarpet
-markdown: rdiscount
+markdown: redcarpet
 pygments: true
 baseurl: ""
 #permalink: /:year/:month/:day/:title
