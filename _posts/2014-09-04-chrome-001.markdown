@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "chrome跳到daohang.114so.cn"
+date:   2014-09-04 20:25
+categories: python
+---
+
+   昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
+   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.
+
+
