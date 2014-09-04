@@ -1,5 +1,6 @@
 name: 妙音's blog
 markdown: redcarpet
 pygments: true
-baseurl: /blog
+baseurl: ""
 #permalink: /:year/:month/:day/:title
+safe: false
