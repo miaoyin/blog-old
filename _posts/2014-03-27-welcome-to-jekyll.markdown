@@ -1,8 +1,7 @@
 ---
 layout: post
-title:  "测试"
+title:  "草稿"
 date:   2014-03-27 16:30:29
-categories: python
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
@@ -22,22 +21,6 @@ Check out the [Jekyll docs][jekyll] for more info on how to get the most out of 
 
 [jekyll-gh]: https://github.com/mojombo/jekyll
 [jekyll]:    http://jekyllrb.com
-
-Setex方式
-标题1
-=
-标题2
----
-
-Atx方式
-# 标题1
-## 标题2
-### 标题3
-
-> 这是一个引用，
-> 这里没有换行，
-> 这里换行了。
->> 内部嵌套
 
 <pre>
 <code class="python">

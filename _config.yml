@@ -4,3 +4,5 @@ pygments: true
 baseurl: ""
 #permalink: /:year/:month/:day/:title
 safe: false
+paginate: 5
+paginate_path: "page:num"
