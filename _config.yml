@@ -6,3 +6,6 @@ baseurl: ""
 safe: false
 paginate: 5
 paginate_path: "page:num"
+name: Your New Jekyll Site
+markdown: redcarpet
+pygments: true

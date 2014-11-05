@@ -2,6 +2,10 @@
 layout: post
 title:  "草稿"
 date:   2014-03-27 16:30:29
+=======
+title:  "Welcome to Jekyll!"
+date:   2014-03-27 16:30:29
+categories: jekyll update
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
