@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: header
 title: "分类"
 ---
 <ul class="list-unstyled">
