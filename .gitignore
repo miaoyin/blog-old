@@ -2,4 +2,4 @@
 *.swp
 _site
 
-!_site/fofa.html
+#!_site/fofa.html
