@@ -4,5 +4,5 @@ pygments: true         #语法高亮
 baseurl: ""
 #permalink: /:year/:month/:day/:title   #永久链接
 safe: false            # 允许使用插件
-paginate: 15
+paginate: 30
 paginate_path: "page:num"
