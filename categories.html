@@ -2,10 +2,10 @@
 layout: header
 title: "分类"
 ---
-<ul class="list-unstyled">
+<ul>
 {% for cat in site.categories%}
     <a name="{{ cat[0] }}"></a>
-    <h2>{{cat[0]}}({{cat[1].size}})</h2>
+    <h3>{{cat[0]}} <span class="badge">{{cat[1].size}}</span></h3>
     {% for post in cat[1] %}
         <li>
             <h4>
@@ -16,3 +16,4 @@ title: "分类"
     {% endfor %}
 {% endfor %}
 </ul>
+

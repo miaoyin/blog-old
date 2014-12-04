@@ -4,99 +4,49 @@ layout:  header
 <div class="container">
   <div class="row">
     <!-- Blog Entries Column -->
-    <div class="col-md-8">
+    <div class="col-md-9">
       {{ content }}
     </div>
     <!-- Blog Sidebar Widgets Column -->
-    <div class="col-md-4" id="aside">
+    <div class="col-md-3" id="aside">
       <!-- Blog Categories Well -->
       <div class="well">
         <h4>分 类</h4>
-        <div class="row">
-            <ul class=" nav nav-list">
-              <li><a href="/categories.html#python">python</a></li>
-
-              <li><a href="/categories.html#webpy">webpy</a></li>
-
-              <li><a href="/categories.html#angularjs">angularjs</a></li>
-
-              <li><a href="/categories.html#nodejs">nodejs</a></li>
-
-              <li><a href="/categories.html#js">js</a></li>
-
-              <li><a href="/categories.html#linux">linux</a></li>
-
-              <li><a href="/categories.html#vim">vim</a></li>
-
-              <li><a href="/categories.html#coding">coding</a></li>
-
-              <li><a href="/categories.html#uwsgi">uwsgi</a></li>
-
-              <li><a href="/categories.html#coffeescript">usgi</a></li>
-
-              <li><a href="/categories.html#coffeescript">coffeescript</a></li>
-
-              <li><a href="/categories.html#postgres">postgres</a></li>
-
-              <li><a href="/categories.html#mongodb">mongodb</a></li>
-
-              <li><a href="/categories.html#OracleXE">OracleXE</a></li>
-
-              <li><a href="/categories.html#svg">svg</a></li>
-
-              <li><a href="/categories.html#css">css</a></li>
-              
-              <li><a href="/categories.html#数据库">数据库</a></li>
-              
-              <li><a href="/categories.html#并发">并发</a></li>
-              
-              <li><a href="/categories.html#管理">管理</a></li>
-              
-              <li><a href="/categories.html#沟通">沟通 &nbsp<span class="badge">14</span></a></li>
-              
-              <li><a href="/categories.html#开示">开示</a></li>
-              
-              <li><a href="/categories.html#体悟">体悟</a></li>
-              
-              <li><a href="/categories.html#未分类">烦恼</a></li>
-
-              <li><a href="/categories.html#音乐">音乐</a></li>
-              
-              <li><a href="/categories.html#未分类">未分类</a></li>
-              
-            </ul>
+        <div class="row list-group">
+            {% for cat in site.categories%}
+            <a href="/categories.html#{{cat[0]}}" class="list-group-item">{{cat[0]}} <span class="badge">{{cat[1].size}}</span></a>
+            {% endfor %}
         </div>
         <!-- /.row -->
       </div>
       <!-- Blog Links Well -->
       <div class="well">
         <h4>链接</h4>
-        <ul class="nav nav-list">
+        <div class="row list-group">
 
-          <li><a href="http://www.liaotuo.org/list-472.html">净空法师专集</a></li>
+          <a class="list-group-item" target="_blank" href="http://www.liaotuo.org/list-472.html">净空法师专集</a>
           
-          <li><a href="http://www.honghuashe.com/">弘化社</a></li>
+          <a class="list-group-item" target="_blank" href="http://www.honghuashe.com/">弘化社</a>
           
-          <li><a href="http://www.fodizi.com/fofa/1_1.htm">净空法师</a></li>
+          <a class="list-group-item" target="_blank" href="http://www.fodizi.com/fofa/1_1.htm">净空法师</a>
           
-          <li><a href="http://www.liaotuo.org/">弘善佛教</a></li>
+          <a class="list-group-item" target="_blank" href="http://www.liaotuo.org/">弘善佛教</a>
+                                                    
+          <a class="list-group-item" target="_blank" href="http://new.amtb-aus.org/">净宗学院</a>
+                                                    
+          <a class="list-group-item" target="_blank" href="http://www.amtcn.net/">莲花生命关怀</a>
           
-          <li><a href="http://new.amtb-aus.org/">净宗学院</a></li>
+          <a class="list-group-item" target="_blank" href="http://www.fodizi.com/">佛弟子</a>
+                                                    
+          <a class="list-group-item" target="_blank" href="http://www.v2ex.com/">v2ex</a>
+                                                    
+          <a class="list-group-item" target="_blank" href="http://www.ruanyifeng.com/blog">阮一峰的网络日志</a>
           
-          <li><a href="http://www.amtcn.net/">莲花生命关怀</a></li>
-          
-          <li><a href="http://www.fodizi.com/">佛弟子</a></li>
-          
-          <li><a href="http://www.v2ex.com/">v2ex</a></li>
-          
-          <li><a href="http://www.ruanyifeng.com/blog">阮一峰的网络日志</a></li>
-          
-          <li><a href="http://coolshell.cn/">酷壳</a></li>
-          
-          <li><a href="http://yongqing.is-programmer.com/">快乐程序员博客</a></li>
-
-          <li><a href="http://my.oschina.net/yongqing">oschina博客</a></li>
-        </ul>
+          <a class="list-group-item" target="_blank" href="http://coolshell.cn/">酷壳</a>
+                                                    
+          <a class="list-group-item" target="_blank" href="http://yongqing.is-programmer.com/">快乐程序员博客</a>
+                                                    
+          <a class="list-group-item" target="_blank" href="http://my.oschina.net/yongqing">oschina博客</a>
       </div>
     </div>
   </div>

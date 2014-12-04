@@ -7,7 +7,9 @@ title: 竹林精舍
   <ul class="posts">
     {% for post in paginator.posts %}
     <li><span>{{ post.date | date:"%Y-%m-%d" }}</span> &raquo;
+    <h5>
     <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+    </h5>
     {% endfor %}
   </ul>
 </div>
@@ -17,8 +19,6 @@ title: 竹林精舍
 <script src="{{site.baseurl}}/static/js/jquery.bootpag.min.js"></script>
 <script>
 var path_template = '{{site.paginate_path}}';
-console.info(path_template);
-
     $('#page-selection').bootpag({
         total: {{paginator.total_pages}},
         page: {{paginator.page}},
