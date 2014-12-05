@@ -14,7 +14,7 @@ layout:  header
         <h4>分 类</h4>
         <div class="row list-group">
             {% for cat in site.categories%}
-            <a href="/categories.html#{{cat[0]}}" class="list-group-item">{{cat[0]}} <span class="badge">{{cat[1].size}}</span></a>
+            <a href="/categories.html#{{cat | first}}" class="list-group-item">{{cat | first}} <span class="badge">{{cat|last|size}}</span></a>
             {% endfor %}
         </div>
         <!-- /.row -->
