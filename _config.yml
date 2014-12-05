@@ -1,7 +1,7 @@
 name: 竹林精舍
 markdown: redcarpet
 #pygments: true         #语法高亮
-highlighter: 'pygments'
+highlighter: "pygments"
 baseurl: ""
 #permalink: /:year/:month/:day/:title   #永久链接
 safe: false            # 允许使用插件

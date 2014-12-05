@@ -6,8 +6,9 @@ layout:  header
 <h2>
   {{ page.title }}
   <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	{{ page.date | date_to_string }}
+        妙音 posted @
+        <span class="glyphicon glyphicon-time"></span>
+        {{ page.date | date: "%Y-%m-%d %H:%M" }}
   </div>
 </h2>
 <!-- Author -->
