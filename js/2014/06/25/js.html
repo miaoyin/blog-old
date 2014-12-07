@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      postgres复制表结构
+      web前端开发包管理器bower[笔记]
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,44 +65,73 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  postgres复制表结构
+  web前端开发包管理器bower[笔记]
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-06-17 11:18
+        2014-06-25 05:13
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>复制表结构</p>
+<p>Bower是用于web前端开发的包管理器。对于前端包管理方面的问题，它提供了一套通用、客观的解决方案。它通过一个API暴露包之间的依赖模型，这样更利于使用更合适的构建工具。Bower没有系统级的依赖，在不同app之间也不互相依赖，依赖树是扁平的。<br>
+    Bower运行在Git之上，它将所有包都视作一个黑盒子。任何类型的资源文件都可以打包为一个模块，并且可以使用任何规范（例如：AMD、CommonJS等）。  </p>
 
-<div class="highlight"><pre><code class="sql"><span class="k">create</span> <span class="k">table</span> <span class="n">his_process_data_201405</span> <span class="k">as</span>
-<span class="p">(</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">his_process_data_201406</span> <span class="k">limit</span> <span class="mi">0</span><span class="p">)</span>
+<h2>安装</h2>
+
+<div class="highlight"><pre><code class="bash"><span class="c">#安装bower</span>
+npm install -g bower
 </code></pre></div>
 
-<p>完整复制一张表</p>
+<h2>基本用法</h2>
 
-<div class="highlight"><pre><code class="sql"><span class="k">create</span> <span class="k">table</span> <span class="n">his_process_data_201405</span> <span class="k">as</span>
-<span class="p">(</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">his_process_data_201406</span><span class="p">)</span>
+<div class="highlight"><pre><code class="bash"><span class="c">#安装包</span>
+bower install jqeury
+<span class="c">#指定版本</span>
+bower install jquery#1.10.3
+<span class="c">#查找包</span>
+bower search jquery
+<span class="c">#卸载包</span>
+bower install jqeury
 </code></pre></div>
+
+<h2>使用包</h2>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/bower_components/jquery/index.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+
+<h2>配置</h2>
+
+<p>配置文件.bowerrc</p>
+
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;directory&quot;</span> <span class="p">:</span> <span class="s2">&quot;components&quot;</span><span class="p">,</span> <span class="err">#指定安装路径</span>
+  <span class="nt">&quot;json&quot;</span>      <span class="p">:</span> <span class="s2">&quot;bower.json&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;endpoint&quot;</span>  <span class="p">:</span> <span class="s2">&quot;https://Bower.herokuapp.com&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;searchpath&quot;</span>  <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;shorthand_resolver&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>来源：http://bower.jsbin.cn/</p>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/%E7%BD%91%E7%BB%9C/2014/05/31/net.html">
-      局域网如何访问外网
+    <a href="/linux/2014/06/19/linux.html">
+      linux与linux之间共享目录
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/linux/2014/06/19/linux.html">
-      linux与linux之间共享目录
+    <a href="/svg/2014/07/09/svg.html">
+      理解svg中画箭头代码[viewbox,refX,refY]
     </a>
   </span>
   

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      postgres复制表结构
+      web路径解析三种方式
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,27 +65,47 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  postgres复制表结构
+  web路径解析三种方式
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-06-17 11:18
+        2014-07-10 17:12
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>复制表结构</p>
+<p>路径解析经过三个阶段:</p>
 
-<div class="highlight"><pre><code class="sql"><span class="k">create</span> <span class="k">table</span> <span class="n">his_process_data_201405</span> <span class="k">as</span>
-<span class="p">(</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">his_process_data_201406</span> <span class="k">limit</span> <span class="mi">0</span><span class="p">)</span>
+<h2>文件路径</h2>
+
+<p>静态文件与网站目录结构一致，动态文件也是根文件路径执行脚本，比如/index.asp</p>
+
+<h2>MVC</h2>
+
+<p>java中的struts就是典型的MVC模式，将url映射到控制器，调用服务操作数据，再返回结果.
+操作的行为主要是用post和get请取方法.</p>
+
+<h2>restful</h2>
+
+<p>目前最流程的就是restful，restful全称是Representational State Transfer表现层状态转换<br>
+它将服务器端提供的内容实体看作资源，并表现在url上, 对资源的操作体现在http方法上, 资源的类型体现在请求字段Accept和响应字段Content-Type上  </p>
+
+<p>在MVC中，主要使用post和get请取方法，增删操作表现在url上  </p>
+
+<div class="highlight"><pre><code class="text">POST /user/add?username=jacksontian
+GET  /user/remove?username=jacksontian
+POST /user/update?username=jacksontian
+GET  /user/get?username=jacksontian
 </code></pre></div>
 
-<p>完整复制一张表</p>
+<p>在restful中  </p>
 
-<div class="highlight"><pre><code class="sql"><span class="k">create</span> <span class="k">table</span> <span class="n">his_process_data_201405</span> <span class="k">as</span>
-<span class="p">(</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">his_process_data_201406</span><span class="p">)</span>
+<div class="highlight"><pre><code class="text">POST   /user/jacksontian   增加
+DELETE /user/jacksontian   删除
+PUT    /user/jacksontian   更新
+GET    /user/jacksontian   查询
 </code></pre></div>
 
 <br/>
@@ -93,16 +113,16 @@
   
   <span class="next">
     上篇：
-    <a href="/%E7%BD%91%E7%BB%9C/2014/05/31/net.html">
-      局域网如何访问外网
+    <a href="/svg/2014/07/09/svg.html">
+      理解svg中画箭头代码[viewbox,refX,refY]
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/linux/2014/06/19/linux.html">
-      linux与linux之间共享目录
+    <a href="/python/2014/09/04/chrome-001.html">
+      chrome跳到daohang.114so.cn
     </a>
   </span>
   
