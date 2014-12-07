@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      chrome跳到daohang.114so.cn
+      postgres复制表结构
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,35 +65,44 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  chrome跳到daohang.114so.cn
+  postgres复制表结构
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-09-04 20:25
+        2014-06-17 11:18
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
-   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.</p>
+<p>复制表结构</p>
+
+<div class="highlight"><pre><code class="sql"><span class="k">create</span> <span class="k">table</span> <span class="n">his_process_data_201405</span> <span class="k">as</span>
+<span class="p">(</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">his_process_data_201406</span> <span class="k">limit</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+
+<p>完整复制一张表</p>
+
+<div class="highlight"><pre><code class="sql"><span class="k">create</span> <span class="k">table</span> <span class="n">his_process_data_201405</span> <span class="k">as</span>
+<span class="p">(</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">his_process_data_201406</span><span class="p">)</span>
+</code></pre></div>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/postgres/2014/06/17/postgres.html">
-      postgres复制表结构
+    <a href="/%E7%BD%91%E7%BB%9C/2014/05/31/net.html">
+      局域网如何访问外网
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/html/2014/09/04/html-001.html">
-      让网站在浏览器标签上显示小图标
+    <a href="/python/2014/09/04/chrome-001.html">
+      chrome跳到daohang.114so.cn
     </a>
   </span>
   

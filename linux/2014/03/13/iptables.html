@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      chrome跳到daohang.114so.cn
+      iptables用法
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,35 +65,100 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  chrome跳到daohang.114so.cn
+  iptables用法
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-09-04 20:25
+        2014-03-13 15:44
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
-   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.</p>
+<p>iptables过滤网络包. 属于网络层防火墙.</p>
+
+<h2>命令行设置</h2>
+
+<ul>
+<li>启用端口</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
+</code></pre></div>
+
+<ul>
+<li>保存配置</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">sudo serivce iptables save
+</code></pre></div>
+
+<ul>
+<li>重启iptables，使配置生效</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">sudo serivce iptables restart
+</code></pre></div>
+
+<h2>配置文件</h2>
+
+<p>永久生效
+修改/etc/sysconfig/iptables文件</p>
+
+<div class="highlight"><pre><code class="bash">-A INPUT -p tcp --dport 8080 -j ACCEPT
+</code></pre></div>
+
+<p>注意要加在最后一个COMMIT前</p>
+
+<p>否则会出现错误</p>
+
+<div class="highlight"><pre><code class="bash">Redirecting to /bin/systemctl restart  iptables.service
+Job <span class="k">for </span>iptables.service failed. See <span class="s1">&#39;systemctl status iptables.service&#39;</span> and <span class="s1">&#39;journalctl -xn&#39;</span> <span class="k">for </span>details.
+</code></pre></div>
+
+<h2>基本用法</h2>
+
+<p>查看本机iptables设置</p>
+
+<div class="highlight"><pre><code class="bash">iptables -L -n
+</code></pre></div>
+
+<ul>
+<li>启用端口</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
+</code></pre></div>
+
+<ul>
+<li>禁用端口</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">iptables -A INPUT -p tcp --dport 8000 -j REJECT
+</code></pre></div>
+
+<ul>
+<li>清除规则
+iptables -F   清除filter中的所有规则链的规则
+iptables -X   清除filter中使用者自定链中的规则</li>
+</ul>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/postgres/2014/06/17/postgres.html">
-      postgres复制表结构
+    <a href="/linux/2014/03/13/firewall.html">
+      fedora的firewall配置
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/html/2014/09/04/html-001.html">
-      让网站在浏览器标签上显示小图标
+    <a href="/linux/2014/03/13/iptables-01.html">
+      fedora中iptables与firewall的关系
     </a>
   </span>
   

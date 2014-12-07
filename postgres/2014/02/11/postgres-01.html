@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      chrome跳到daohang.114so.cn
+      SQL标准规定中null值判断是否合理？
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,35 +65,45 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  chrome跳到daohang.114so.cn
+  SQL标准规定中null值判断是否合理？
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-09-04 20:25
+        2014-02-11 18:50
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
-   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.</p>
+<p>在postgres中判断null值时，下面语句的结果不相等，为什么？</p>
+
+<div class="highlight"><pre><code class="sql"><span class="lineno">1</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">user_info</span> <span class="k">where</span> <span class="n">user_name</span> <span class="k">is</span> <span class="k">null</span>
+<span class="lineno">2</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">user_info</span> <span class="k">where</span> <span class="n">user_name</span> <span class="o">=</span> <span class="k">null</span>
+</code></pre></div>
+
+<p>原因是postgres遵循sql标准，在ANSI SQL(SQL-92)标准中规定的Null值的比较取值结果都为False.<br>
+它认为NULL 代表一个未知的数值，无法知道两个未知的数值是否相等。  </p>
+
+<p>这个理由很不充分，既然无法判断，那么is null又是如何判断它是空的呢? </p>
+
+<p>虽然null表面含义是未知值，但是计算机中不可能有不确定的表示. 常见程序语言中null实际都是一个特殊值，一个确定的特殊值。所以在编程语言中是允许使用null=null(值比较)的. SQL中不允许是否合理?  </p>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/postgres/2014/06/17/postgres.html">
-      postgres复制表结构
+    <a href="/postgres/2014/02/11/postgres.html">
+      postgres递归查询
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/html/2014/09/04/html-001.html">
-      让网站在浏览器标签上显示小图标
+    <a href="/%E7%AE%A1%E7%90%86/2014/02/14/admin.html">
+      领导管理的原则
     </a>
   </span>
   

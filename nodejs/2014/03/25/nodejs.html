@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      chrome跳到daohang.114so.cn
+      npm无反应
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,35 +65,73 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  chrome跳到daohang.114so.cn
+  npm无反应
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-09-04 20:25
+        2014-03-25 15:42
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
-   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.</p>
+<p>通过npm安装node包时，发现卡住了，没有反应</p>
+
+<h2>查找原因</h2>
+
+<p>加上参数-verbose，查看详细信息<br>
+发现卡在下面这个地方  </p>
+
+<div class="highlight"><pre><code class="bash">npm http GET https://registry.npmjs.org/express
+npm info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+</code></pre></div>
+
+<p>通过提示知道应该是出现超时.</p>
+
+<h2>解决方法</h2>
+
+<p>最后找到，通过修改它的安装源，换成国内的http://registry.cnpmjs.org 即可.<br>
+* config命令</p>
+
+<div class="highlight"><pre><code class="bash">npm config <span class="nb">set </span>registry http://registry.cnpmjs.org
+npm info underscore
+</code></pre></div>
+
+<ul>
+<li>命令行指定</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">npm --registry http:/registry.cnpmjs.org install express
+</code></pre></div>
+
+<p>修改~/.npmrc配置文件，加入以下内容</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">registry</span> <span class="o">=</span> http://registry.cnpmjs.org
+</code></pre></div>
+
+<h2>cnpm</h2>
+
+<p>更方便的方法是使用cnpm，安装后用法与npm一样</p>
+
+<div class="highlight"><pre><code class="bash">sudo npm install -g cnpm --registry http://r.cnpmjs.org
+</code></pre></div>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/postgres/2014/06/17/postgres.html">
-      postgres复制表结构
+    <a href="/linux/2014/03/25/linux.html">
+      linux端口使用权限
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/html/2014/09/04/html-001.html">
-      让网站在浏览器标签上显示小图标
+    <a href="/nodejs/2014/03/26/nodejs.html">
+      cnpm包管理工具
     </a>
   </span>
   

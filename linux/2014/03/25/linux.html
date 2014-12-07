@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      chrome跳到daohang.114so.cn
+      linux端口使用权限
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,35 +65,58 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  chrome跳到daohang.114so.cn
+  linux端口使用权限
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-09-04 20:25
+        2014-03-25 09:55
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
-   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.</p>
+<p>在Linux系统中，监听1024以下端口需要root权限。因此，如果想监听80，需要使用sudo命令启动程序。
+* 示例</p>
+
+<div class="highlight"><pre><code class="bash"><span class="lineno"> 1</span> <span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>python -m SimpleHTTPServer 80
+<span class="lineno"> 2</span> Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+<span class="lineno"> 3</span>   File <span class="s2">&quot;/usr/lib64/python2.7/runpy.py&quot;</span>, line 162, in _run_module_as_main
+<span class="lineno"> 4</span>     <span class="s2">&quot;__main__&quot;</span>, fname, loader, pkg_name<span class="o">)</span>
+<span class="lineno"> 5</span>   File <span class="s2">&quot;/usr/lib64/python2.7/runpy.py&quot;</span>, line 72, in _run_code
+<span class="lineno"> 6</span>     <span class="nb">exec </span>code in run_globals
+<span class="lineno"> 7</span>   File <span class="s2">&quot;/usr/lib64/python2.7/SimpleHTTPServer.py&quot;</span>, line 220, in &lt;module&gt;
+<span class="lineno"> 8</span>     <span class="nb">test</span><span class="o">()</span>
+<span class="lineno"> 9</span>   File <span class="s2">&quot;/usr/lib64/python2.7/SimpleHTTPServer.py&quot;</span>, line 216, in <span class="nb">test</span>
+<span class="lineno">10</span> <span class="nb">    </span>BaseHTTPServer.test<span class="o">(</span>HandlerClass, ServerClass<span class="o">)</span>
+<span class="lineno">11</span>   File <span class="s2">&quot;/usr/lib64/python2.7/BaseHTTPServer.py&quot;</span>, line 595, in <span class="nb">test</span>
+<span class="lineno">12</span> <span class="nb">    </span><span class="nv">httpd</span> <span class="o">=</span> ServerClass<span class="o">(</span>server_address, HandlerClass<span class="o">)</span>
+<span class="lineno">13</span>   File <span class="s2">&quot;/usr/lib64/python2.7/SocketServer.py&quot;</span>, line 419, in __init__
+<span class="lineno">14</span>     self.server_bind<span class="o">()</span>
+<span class="lineno">15</span>   File <span class="s2">&quot;/usr/lib64/python2.7/BaseHTTPServer.py&quot;</span>, line 108, in server_bind
+<span class="lineno">16</span>     SocketServer.TCPServer.server_bind<span class="o">(</span>self<span class="o">)</span>
+<span class="lineno">17</span>   File <span class="s2">&quot;/usr/lib64/python2.7/SocketServer.py&quot;</span>, line 430, in server_bind
+<span class="lineno">18</span>     self.socket.bind<span class="o">(</span>self.server_address<span class="o">)</span>
+<span class="lineno">19</span>   File <span class="s2">&quot;/usr/lib64/python2.7/socket.py&quot;</span>, line 224, in meth
+<span class="lineno">20</span>     <span class="k">return </span>getattr<span class="o">(</span>self._sock,name<span class="o">)(</span>*args<span class="o">)</span>
+<span class="lineno">21</span> socket.error: <span class="o">[</span>Errno 13<span class="o">]</span> Permission denied
+</code></pre></div>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/postgres/2014/06/17/postgres.html">
-      postgres复制表结构
+    <a href="/uwsgi/2014/03/19/uwsgi.html">
+      invalid request block size: 21573 (max 4096)...skip错误原因
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/html/2014/09/04/html-001.html">
-      让网站在浏览器标签上显示小图标
+    <a href="/nodejs/2014/03/25/nodejs.html">
+      npm无反应
     </a>
   </span>
   

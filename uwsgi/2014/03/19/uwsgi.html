@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      chrome跳到daohang.114so.cn
+      invalid request block size: 21573 (max 4096)...skip错误原因
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,35 +65,75 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  chrome跳到daohang.114so.cn
+  invalid request block size: 21573 (max 4096)...skip错误原因
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-09-04 20:25
+        2014-03-19 11:21
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
-   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.</p>
+<p>有如下测试代码
+test.py</p>
+
+<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="c">#!/usr/bin/python</span>
+<span class="lineno">2</span>  
+<span class="lineno">3</span> <span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
+<span class="lineno">4</span>     <span class="n">start_response</span><span class="p">(</span><span class="s">&#39;200 OK&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;Content_Type&#39;</span><span class="p">,</span> <span class="s">&#39;text/html&#39;</span><span class="p">)])</span>
+<span class="lineno">5</span>     <span class="k">return</span> <span class="s">&quot;Congraduation!!! uWSGI Testing OK!!!&quot;</span>
+</code></pre></div>
+
+<ul>
+<li>以uwsgi方式启动<br></li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">uwsgi -s :8080 --wsgi-file test.py -M -p 20
+</code></pre></div>
+
+<ul>
+<li>访问<br>
+在浏览器输入http://0.0.0.0:8080/ 浏览器提示&quot;未收到数据&quot;，后台出现错误提示<br></li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">invalid request block size: 21573 <span class="o">(</span>max 4096<span class="o">)</span>...skip
+</code></pre></div>
+
+<ul>
+<li><p>错误原因<br>
+usgi参数-s表示以socket方式提供通信端口，默认的协议是tcp.<br>
+通过浏览器访问使用的协议是http.  </p></li>
+<li><p>正确方式  </p></li>
+</ul>
+
+<p>** 直接提供http服务</p>
+
+<div class="highlight"><pre><code class="bash">uwsgi --http :8080 --wsgi-file test.py -M -p 20
+</code></pre></div>
+
+<p>** ngix+uwsgi
+通过nginx访问uwsgi，uwsgi则可使用以下方式启动</p>
+
+<div class="highlight"><pre><code class="bash">uwsgi -s :8080 --wsgi-file test.py -M -p 20
+</code></pre></div>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/postgres/2014/06/17/postgres.html">
-      postgres复制表结构
+    <a href="/windows/2014/03/17/windows.html">
+      由于帐户限制,您无法登录
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/html/2014/09/04/html-001.html">
-      让网站在浏览器标签上显示小图标
+    <a href="/linux/2014/03/25/linux.html">
+      linux端口使用权限
     </a>
   </span>
   

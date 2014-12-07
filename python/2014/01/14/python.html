@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      chrome跳到daohang.114so.cn
+      objgraph无法生成分析图的原因查找多个词
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,35 +65,67 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  chrome跳到daohang.114so.cn
+  objgraph无法生成分析图的原因查找多个词
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-09-04 20:25
+        2014-01-14 13:23
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
-   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.</p>
+<p>objgraph 是用于诊断内存问题的有用的工具<br>
+安装objgraph</p>
+
+<div class="highlight"><pre><code class="python"> 
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">objgraph</span>
+</code></pre></div>
+ 
+
+<p>用小段测试代码，生成png格式的分析图片</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#encoding=utf-8</span>
+<span class="kn">import</span> <span class="nn">objgraph</span>
+ 
+ 
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">hi</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">hi</span>
+ 
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">hi</span> <span class="o">=</span> <span class="s">&#39;hi&#39;</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span>
+    <span class="n">objgraph</span><span class="o">.</span><span class="n">show_backrefs</span><span class="p">([</span><span class="n">hi</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s">&#39;/tmp/hi.png&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>会出现错误</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">Graph</span> <span class="n">written</span> <span class="n">to</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">objgraph</span><span class="o">-</span><span class="n">Nieb4E</span><span class="o">.</span><span class="n">dot</span> <span class="p">(</span><span class="mi">6</span> <span class="n">nodes</span><span class="p">)</span>
+<span class="n">Graph</span> <span class="n">viewer</span> <span class="p">(</span><span class="n">xdot</span><span class="p">)</span> <span class="ow">and</span> <span class="n">image</span> <span class="n">renderer</span> <span class="p">(</span><span class="n">dot</span><span class="p">)</span> <span class="ow">not</span> <span class="n">found</span><span class="p">,</span> <span class="ow">not</span> <span class="n">doing</span> <span class="n">anyt</span>
+<span class="n">hing</span> <span class="k">else</span>  
+</code></pre></div>
+
+<p>原因: 缺少依赖包</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">xdot</span>  <span class="n">perl</span><span class="o">-</span><span class="n">Image</span><span class="o">-</span><span class="n">Dot</span>
+</code></pre></div>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/postgres/2014/06/17/postgres.html">
-      postgres复制表结构
+    <a href="/linux/2014/01/14/linux.html">
+      yum查找多个词
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/html/2014/09/04/html-001.html">
-      让网站在浏览器标签上显示小图标
+    <a href="/linux/2014/01/15/linux.html">
+      内网到外网的隧道
     </a>
   </span>
   

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      chrome跳到daohang.114so.cn
+      内网到外网的隧道
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,35 +65,51 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  chrome跳到daohang.114so.cn
+  内网到外网的隧道
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-09-04 20:25
+        2014-01-15 23:22
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
-   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.</p>
+<p>今天需要在内网机器上安装一个包，而且没有与系统版本匹配的rpm. 所以只能自己编译安装。编译时出现错误，原因是系统没有安装gcc. 只好再安装gcc，然而再次出现问题，发现缺少gcc的依赖了，而且是一堆的依赖包. 没有办法，只能再一个个安装依赖包. 相信手动安装过linux软件的人，能够深深体会到相互依赖问题会让人有多痛苦。 好不容找到这些特定版本的包，最后出现悲剧了，貌似其中几个依赖包，由版本比较老，网上已经没有了。而且由于内核版本的原因，gcc也只能安装这个版本的。</p>
+
+<p>结果出现了安装某个包，需要gcc，安装gcc，需要依赖包，部分依赖包找不到。并且内核限制了只能安装这个版本的gcc。并且系统的安装盘是精简版的，没有常用软件的安装包.</p>
+
+<p>找依赖包已经让人很痛苦了，结果是这样，让人很恼火. 下定决心要在内网机器上使用yum，用它来解决这个问题。
+为达到这个目的，需要在内网和外网间搭一条隧道，让内网能访问外网。</p>
+
+<p>工作的网络环境
+工作是在外网，系统在独立的内部网络。在外网访问内网需要通过专门的vpn软件。
+这个vpn软件，只能运行在windows下，使外网机器拥有临时的内网地址，运行时外网机器不能访问外网。</p>
+
+<p>其中网内到外网的端口转发</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">proxychains</span> <span class="n">ssh</span>  <span class="o">-</span><span class="n">N</span> <span class="o">-</span><span class="n">D</span> <span class="mi">1090</span> <span class="n">wyq</span><span class="nd">@192.168.1.102</span>
+</code></pre></div>
+
+<p>这里面最要的不是怎么建数据通道，而是怎么绕过这个特定的vpn软件.
+工作原因实现方法只能略说.</p>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/postgres/2014/06/17/postgres.html">
-      postgres复制表结构
+    <a href="/python/2014/01/14/python.html">
+      objgraph无法生成分析图的原因查找多个词
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/html/2014/09/04/html-001.html">
-      让网站在浏览器标签上显示小图标
+    <a href="/linux/2014/01/16/proxychains.html">
+      在用proxychains时, ping用不了怎么办
     </a>
   </span>
   

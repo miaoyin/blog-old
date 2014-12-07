@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      chrome跳到daohang.114so.cn
+      局域网如何访问外网
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,35 +65,41 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  chrome跳到daohang.114so.cn
+  局域网如何访问外网
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-09-04 20:25
+        2014-05-31 23:50
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
-   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.</p>
+<p>通常一台主机拥有外网地址，根据网络协议很容易理解，通信的过程.  </p>
+
+<p>如果主机拥有的是局域网IP地址，该如何理解？<br>
+比如：常见的一种情况，主机地址是192.168.1.100，连接着一个路由器，路由器通过拨号上网(拥有临时外网IP). 这种情况下局域网主机, 如何访问外网主机(比如www.baidu.com), 根据网络协议似乎很难理解两者是如何通信的？  </p>
+
+<p>答案是: 网络地址转换(NAT)，将私有地址转化为合法IP地址。  </p>
+
+<p>当主机192.168.1.100向外网主机发送数据，在通过个人路由器时，路由器会修改IP报文，将IP和端口替换为它的外网IP和随机分配的端口，并且将修改前后的信息作为映射关系保存起来, 再将IP报文转发出去. 当外网主机返回信息时，先被路由器接收到，路由器再根据发送数据时保存的映射关系，将数据发送给内网主机.  </p>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/postgres/2014/06/17/postgres.html">
-      postgres复制表结构
+    <a href="/linux/2014/05/05/ssh.html">
+      ssh登陆提示Too many authentication failures for wyq
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/html/2014/09/04/html-001.html">
-      让网站在浏览器标签上显示小图标
+    <a href="/postgres/2014/06/17/postgres.html">
+      postgres复制表结构
     </a>
   </span>
   

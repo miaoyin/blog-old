@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      chrome跳到daohang.114so.cn
+      jquery对象是否相同
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,35 +65,61 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  chrome跳到daohang.114so.cn
+  jquery对象是否相同
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-09-04 20:25
+        2014-02-11 13:46
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
-   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.</p>
+<p>通过不同形式得到同一个htnl元素，如何比较它是否相同？<br>
+假设得到后，两者变量名是A和B. (A和B是js元素，还是jquery对象，此时不清楚)  </p>
+
+<p>第一个想到的是方法是$(A) == $(B)，结果返回false<br>
+再试试$(A)[0] == $(B)[0]，结果返回true  </p>
+
+<p>它比较的是什么？</p>
+
+<p>看看下面例子，下面的两个input比较，会相同吗.</p>
+
+<div class="highlight"><pre><code class="html"><span class="lineno">1</span> <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
+<span class="lineno">2</span>     <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;user_name&quot;</span><span class="nt">/&gt;</span>
+<span class="lineno">3</span>     <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;user_name&quot;</span><span class="nt">/&gt;</span>
+<span class="lineno">4</span> <span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>它们不同</p>
+
+<div class="highlight"><pre><code class="html"><span class="lineno">1</span> $(function(){
+<span class="lineno">2</span>     var inputs = $(&quot;#content input&quot;)
+<span class="lineno">3</span>     console.info(inputs[0] == inputs[1]);  //false
+<span class="lineno">4</span>     console.info($(inputs[0]) == $(inputs[0])); //false
+<span class="lineno">5</span> });
+</code></pre></div>
+
+<p>其实比较只有两种类型: 值类型和引用类型.<br>
+上面就是引用比较. jquery的$会产生新对象，每次的引用都不同，自然就不相等.<br>
+所以只能用最初的引用进行比较，而不是jquery转化后的.  </p>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/postgres/2014/06/17/postgres.html">
-      postgres复制表结构
+    <a href="/python/2014/01/26/python-01.html">
+      理解select模块--等待IO完成
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/html/2014/09/04/html-001.html">
-      让网站在浏览器标签上显示小图标
+    <a href="/postgres/2014/02/11/postgres.html">
+      postgres递归查询
     </a>
   </span>
   

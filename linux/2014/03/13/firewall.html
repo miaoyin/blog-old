@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      chrome跳到daohang.114so.cn
+      fedora的firewall配置
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,35 +65,92 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  chrome跳到daohang.114so.cn
+  fedora的firewall配置
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-09-04 20:25
+        2014-03-13 14:16
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>昨天选好喜欢的名字, 注册了个cn域名，今天审核通过. 有点小高兴. 先配置好域名解析. 然后设置好github的CNAME文件. 域名解析是即刻生效，github的CNAME要等会儿了.
-   拿着域名在chrome上访问，直接调到http://daohang.114so.cn/ ，在IE上却一切正常. 试了各种方法还是不行，只有在后面随便加个参数先.</p>
+<p>iptables可以过滤数据包，属于网络层的防火墙。fedora中还有一层防火墙软件firewall。属于更高一层的防火墙，并且是动态防火墙，修改配置后，会自动生效，不需要重启。<br>
+可以控制服务，控制端口，设置安全区域，设置端口转发等功能。  </p>
+
+<h2>配置工具</h2>
+
+<ol>
+<li>firewall-config 图形配置界面</li>
+<li>firewall-cmd 命令行配置</li>
+</ol>
+
+<p>firewall-cmd用法
+* 启用端口</p>
+
+<div class="highlight"><pre><code class="bash">firewall-cmd <span class="o">[</span>--zone<span class="o">=</span>&lt;zone&gt;<span class="o">]</span> --add-port<span class="o">=</span>&lt;port&gt;<span class="o">[</span>-&lt;port&gt;<span class="o">]</span>/&lt;protocol&gt; <span class="o">[</span>--timeout<span class="o">=</span>&lt;seconds&gt;<span class="o">]</span>
+</code></pre></div>
+
+<p>示例</p>
+
+<div class="highlight"><pre><code class="bash">firewall-cmd --add-port<span class="o">=</span>8080/tcp
+</code></pre></div>
+
+<ul>
+<li>禁用端口</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">firewall-cmd <span class="o">[</span>--zone<span class="o">=</span>&lt;zone&gt;<span class="o">]</span> --remove-port<span class="o">=</span>&lt;port&gt;<span class="o">[</span>-&lt;port&gt;<span class="o">]</span>/&lt;protocol&gt;
+</code></pre></div>
+
+<p>示例</p>
+
+<div class="highlight"><pre><code class="bash">firewall-cmd --remove-port<span class="o">=</span>8080/tcp
+</code></pre></div>
+
+<ul>
+<li>启用服务</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">firewall-cmd <span class="o">[</span>--zone<span class="o">=</span>&lt;zone&gt;<span class="o">]</span> --add-service<span class="o">=</span>&lt;service&gt; <span class="o">[</span>--timeout<span class="o">=</span>&lt;seconds&gt;<span class="o">]</span>
+</code></pre></div>
+
+<p>示例</p>
+
+<div class="highlight"><pre><code class="bash">firewall-cmd --add-service<span class="o">=</span>http
+</code></pre></div>
+
+<ul>
+<li>禁用服务</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">firewall-cmd <span class="o">[</span>--zone<span class="o">=</span>&lt;zone&gt;<span class="o">]</span> --remove-service<span class="o">=</span>&lt;service&gt;
+</code></pre></div>
+
+<p>示例</p>
+
+<div class="highlight"><pre><code class="bash">firewall-cmd --zone<span class="o">=</span>home --remove-service<span class="o">=</span>http
+</code></pre></div>
+
+<p>上面是临时配置，系统重启后会失效。<br>
+如果加上参数--permanent，就会永久配置，重启后依然有效。  </p>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/postgres/2014/06/17/postgres.html">
-      postgres复制表结构
+    <a href="/python/2014/02/24/python.html">
+      meliae内存分析-基本用法
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/html/2014/09/04/html-001.html">
-      让网站在浏览器标签上显示小图标
+    <a href="/linux/2014/03/13/iptables.html">
+      iptables用法
     </a>
   </span>
   
