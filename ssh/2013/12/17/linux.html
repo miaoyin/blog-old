@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      将[{},{}]转为dict
+      让远程机器执行命令的便捷方式
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,32 +65,22 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  将[{},{}]转为dict
+  让远程机器执行命令的便捷方式
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2013-11-14 21:31
+        2013-12-17 21:19
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>经常遇到一种需求，需要把从数据库取出的数据，转为dict对象([{}, {},...]--&gt;dict)。</p>
+<p>假如想查看远程机器A上的某个进程是否存在.<br>
+通常第一步是ssh到那台机器,第二步是运行ps -ef |grep process_mon.py命.<br>
+ssh可以将两个步骤合并在一起，让过程更轻松.  </p>
 
-<div class="highlight"><pre><code class="bash"><span class="lineno">1</span> <span class="nv">rs</span> <span class="o">=</span> <span class="o">[{</span><span class="s2">&quot;user_id&quot;</span>:111, <span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;abc&quot;</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;user_id&quot;</span>:123, <span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;edf&quot;</span><span class="o">}]</span>
-<span class="lineno">2</span> print dict<span class="o">(</span>map<span class="o">(</span>lambda r:<span class="o">[</span>r<span class="o">[</span><span class="s2">&quot;user_id&quot;</span><span class="o">]</span>, r<span class="o">]</span>, rs<span class="o">))</span>
-<span class="lineno">3</span> &gt;&gt;<span class="o">{</span>111: <span class="o">{</span><span class="s1">&#39;user_id&#39;</span>: 111, <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;abc&#39;</span><span class="o">}</span>, 123: <span class="o">{</span><span class="s1">&#39;user_id&#39;</span>: 123, <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;edf&#39;</span><span class="o">}}</span>
-</code></pre></div>
-
-<p>上面看起来比较啰嗦，换一种写法</p>
-
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="k">print</span> <span class="nb">dict</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s">&quot;user_id&quot;</span><span class="p">],</span> <span class="n">r</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">)</span>
-</code></pre></div>
-
-<p>更简洁的写法</p>
-
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="p">{</span><span class="n">r</span><span class="p">[</span><span class="s">&#39;user_id&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">}</span>
+<div class="highlight"><pre><code class="bash">ssh wyq@135.32.22.22 <span class="s1">&#39;ps -ef |grep process_mon.py&#39;</span>
 </code></pre></div>
 
 <br/>
@@ -98,16 +88,16 @@
   
   <span class="next">
     上篇：
-    <a href="/linux/2013/11/14/ibus-warning.html">
-      IBUS-WARNING **: Process Key Event failed: Timeout was reached
+    <a href="/webpy/2013/12/17/webpy.html">
+      with让数据库操作代码变得清爽
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/webpy/2013/11/16/webpy.html">
-      webpy中auto_application的cookie共享问题
+    <a href="/coding/2013/12/17/code.html">
+      令人不爽的数据检查
     </a>
   </span>
   

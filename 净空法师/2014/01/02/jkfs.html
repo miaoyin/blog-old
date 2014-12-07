@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      将[{},{}]转为dict
+      精进是断烦恼开智慧的秘诀
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,49 +65,34 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  将[{},{}]转为dict
+  精进是断烦恼开智慧的秘诀
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2013-11-14 21:31
+        2014-01-02 09:03
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>经常遇到一种需求，需要把从数据库取出的数据，转为dict对象([{}, {},...]--&gt;dict)。</p>
-
-<div class="highlight"><pre><code class="bash"><span class="lineno">1</span> <span class="nv">rs</span> <span class="o">=</span> <span class="o">[{</span><span class="s2">&quot;user_id&quot;</span>:111, <span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;abc&quot;</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;user_id&quot;</span>:123, <span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;edf&quot;</span><span class="o">}]</span>
-<span class="lineno">2</span> print dict<span class="o">(</span>map<span class="o">(</span>lambda r:<span class="o">[</span>r<span class="o">[</span><span class="s2">&quot;user_id&quot;</span><span class="o">]</span>, r<span class="o">]</span>, rs<span class="o">))</span>
-<span class="lineno">3</span> &gt;&gt;<span class="o">{</span>111: <span class="o">{</span><span class="s1">&#39;user_id&#39;</span>: 111, <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;abc&#39;</span><span class="o">}</span>, 123: <span class="o">{</span><span class="s1">&#39;user_id&#39;</span>: 123, <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;edf&#39;</span><span class="o">}}</span>
-</code></pre></div>
-
-<p>上面看起来比较啰嗦，换一种写法</p>
-
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="k">print</span> <span class="nb">dict</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s">&quot;user_id&quot;</span><span class="p">],</span> <span class="n">r</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">)</span>
-</code></pre></div>
-
-<p>更简洁的写法</p>
-
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="p">{</span><span class="n">r</span><span class="p">[</span><span class="s">&#39;user_id&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">}</span>
-</code></pre></div>
+<p>精进是断烦恼开智慧的秘诀，最要紧的要专精专修，要把全部精力用在一部经上！一门没学好，决定不可以学别的法门！不少人学的很多，他杂进乱进，什么经都想看，什么法门都想学，把修学的精力分散了！不肯「一门深入、长时熏修」，所以无论怎么努力，最后也得不到效果，亏吃在这个地方！——净空老法师</p>
 
 <br/>
 <div style="margin-top:10px;margin-bottom:10px">
   
   <span class="next">
     上篇：
-    <a href="/linux/2013/11/14/ibus-warning.html">
-      IBUS-WARNING **: Process Key Event failed: Timeout was reached
+    <a href="/ssh/2013/12/31/ssh.html">
+      ssh别名登录
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/webpy/2013/11/16/webpy.html">
-      webpy中auto_application的cookie共享问题
+    <a href="/2014/03/28/welcome-to-jekyll.html">
+      草稿
     </a>
   </span>
   

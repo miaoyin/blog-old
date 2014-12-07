@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      将[{},{}]转为dict
+      Building the main Guest Additions module [失败]
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,32 +65,50 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  将[{},{}]转为dict
+  Building the main Guest Additions module [失败]
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2013-11-14 21:31
+        2013-12-27 19:03
   </div>
 </h2>
 <!-- Author -->
 <hr>
 <div class="col-md-10">
 
-<p>经常遇到一种需求，需要把从数据库取出的数据，转为dict对象([{}, {},...]--&gt;dict)。</p>
+<p>在安装virtualbox的增强功能时出现错误</p>
 
-<div class="highlight"><pre><code class="bash"><span class="lineno">1</span> <span class="nv">rs</span> <span class="o">=</span> <span class="o">[{</span><span class="s2">&quot;user_id&quot;</span>:111, <span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;abc&quot;</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;user_id&quot;</span>:123, <span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;edf&quot;</span><span class="o">}]</span>
-<span class="lineno">2</span> print dict<span class="o">(</span>map<span class="o">(</span>lambda r:<span class="o">[</span>r<span class="o">[</span><span class="s2">&quot;user_id&quot;</span><span class="o">]</span>, r<span class="o">]</span>, rs<span class="o">))</span>
-<span class="lineno">3</span> &gt;&gt;<span class="o">{</span>111: <span class="o">{</span><span class="s1">&#39;user_id&#39;</span>: 111, <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;abc&#39;</span><span class="o">}</span>, 123: <span class="o">{</span><span class="s1">&#39;user_id&#39;</span>: 123, <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;edf&#39;</span><span class="o">}}</span>
+<div class="highlight"><pre><code class="bash">Building the main Guest Additions module <span class="o">[</span>失败<span class="o">]</span>
 </code></pre></div>
 
-<p>上面看起来比较啰嗦，换一种写法</p>
+<p>查看日志找到原因，缺少依赖</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="k">print</span> <span class="nb">dict</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s">&quot;user_id&quot;</span><span class="p">],</span> <span class="n">r</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">)</span>
+<div class="highlight"><pre><code class="bash">Uninstalling modules from DKMS
+Attempting to install using DKMS
+ 
+Creating symlink /var/lib/dkms/vboxguest/4.3.6/source -&gt;
+                 /usr/src/vboxguest-4.3.6
+ 
+DKMS: add completed.
+Error! <span class="nb">echo</span>
+Your kernel headers <span class="k">for </span>kernel 3.12.5-302.fc20.x86_64 cannot be found at
+/lib/modules/3.12.5-302.fc20.x86_64/build or /lib/modules/3.12.5-302.fc20.x86_64/source.
+Failed to install using DKMS, attempting to install without
+/tmp/vbox.0/Makefile.include.header:97: *** Error: unable to find the sources of your current Linux kernel. Specify <span class="nv">KERN_DIR</span><span class="o">=</span>&lt;directory&gt; and run Make again。 停止。
+Creating user <span class="k">for </span>the Guest Additions.
+Creating udev rule <span class="k">for </span>the Guest Additions kernel module.
 </code></pre></div>
 
-<p>更简洁的写法</p>
+<p>安装缺少的模块</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="p">{</span><span class="n">r</span><span class="p">[</span><span class="s">&#39;user_id&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">}</span>
+<div class="highlight"><pre><code class="bash">sudo yum install dkms kernel-devel
+</code></pre></div>
+
+<p>应该是在编译一些东西，可能需要先安装gcc</p>
+
+<p>验证是否成功</p>
+
+<div class="highlight"><pre><code class="bash">sudo /etc/init.d/vboxadd setup
 </code></pre></div>
 
 <br/>
@@ -98,16 +116,16 @@
   
   <span class="next">
     上篇：
-    <a href="/linux/2013/11/14/ibus-warning.html">
-      IBUS-WARNING **: Process Key Event failed: Timeout was reached
+    <a href="/coding/2013/12/17/code.html">
+      令人不爽的数据检查
     </a>
   </span>
    
   
   <span class="prev">
     下篇：
-    <a href="/webpy/2013/11/16/webpy.html">
-      webpy中auto_application的cookie共享问题
+    <a href="/python/2013/12/30/python.html">
+      SimpleHttpServer出现unicodeDecodeError
     </a>
   </span>
   
