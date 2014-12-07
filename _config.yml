@@ -7,3 +7,4 @@ baseurl: ""
 safe: false            # 允许使用插件
 paginate: 30
 paginate_path: "page:num"
+cdn_url: "http://miaoyin.qiniudn.com"
