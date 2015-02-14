@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      《若要佛法兴，唯有僧赞僧》
+      git免密码(https方式)
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,38 +65,63 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  《若要佛法兴，唯有僧赞僧》
+  git免密码(https方式)
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2015-01-14 13:52
+        2015-02-14 17:16
   </div>
 </h2>
 <!-- Author -->
 <hr>
 
 <div class="col-md-10">
-    <div class="highlight"><pre><code class="text language-text" data-lang="text">改善命运的方法中，有一个很重要的秘诀，就是改善人际关系，如何改善人际关系，方法很简单，就是“礼敬赞叹”，祖师大德有一句话：“若要佛法兴，唯有僧赞僧”，所以，僧赞僧时佛法兴，人赞人时事业旺！“赞叹”是改善命运的秘诀。此书汇集了当今高僧净空老法师与各宗派大德高僧的互相赞叹，读完此书，你就会明白，为什么净空老法师能把原来贫穷短命的命运转变为富有、长寿、令全世界尊敬的命运，原因之一就是“赞叹”！得此秘诀，您的命运亦将从此改变.
+    <div class="highlight"><pre><code class="text language-text" data-lang="text">使用git push提交时，每次都要输入密码，次数多了，感觉挺麻烦. 如果git以ssh协议通讯，免密码可以用ssh公钥设置免登录。如果git时以https方式访问呢，该怎么办？下面方式可以解决这个问题.
 </code></pre></div>
-<p><a href="http://pan.baidu.com/s/1ntICwLb">http://pan.baidu.com/s/1ntICwLb</a></p>
+<ul>
+<li>新建文件并保存密码</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">touch ~/.git-credentials
+vim ~/.git-credentials
+</code></pre></div>
+
+<p>添加内容</p>
+
+<div class="highlight"><pre><code class="text">https://{username}:{password}@github.com
+</code></pre></div>
+
+<ul>
+<li>添加git配置</li>
+</ul>
+
+<p>执行下面命令添加配置</p>
+
+<div class="highlight"><pre><code class="bash">git config --global credential.helper store
+</code></pre></div>
+
+<ul>
+<li>查看~/.gitconfig文件变化</li>
+</ul>
+
+<p>~/.gitconfig文件多出下面配置项</p>
+
+<div class="highlight"><pre><code class="text">[credential]
+    helper = store
+</code></pre></div>
+
+<p>再尝试git push不再需要输入密码.</p>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">
       
       <span class="next">
         上篇：
-        <a href="/%E5%87%80%E7%A9%BA%E6%B3%95%E5%B8%88/2015/01/14/jkfs-01.html">
-          净空法师：改过很不容易，不容易也得要改
+        <a href="/%E5%87%80%E7%A9%BA%E6%B3%95%E5%B8%88/2015/01/14/jkfs-03.html">
+          《若要佛法兴，唯有僧赞僧》
         </a>
       </span>
        
-      
-      <span class="prev">
-        下篇：
-        <a href="/git/2015/02/14/git.html">
-          git免密码(https方式)
-        </a>
-      </span>
       
     </div>
     <hr>
