@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      不用翻墙的google地址
+      $('a').click()无法触发页面跳转
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,51 +65,78 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  不用翻墙的google地址
+  $('a').click()无法触发页面跳转
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2014-08-03 21:32
+        2015-02-14 22:18
   </div>
 </h2>
 <!-- Author -->
 <hr>
 
 <div class="col-md-10">
-    <p><strong>域名地址</strong><br>
-<a href="https://g.ttlsa.com/" target="_blank">https://g.ttlsa.com/</a><br>
-<a href="https://wen.lu/" target="_blank">https://wen.lu/</a></p>
+    <h3>描述</h3>
 
-<p><strong>ip地址</strong>
-不定时更新的iplist<br>
-<a href="http://cb.e-fly.org:81/archives/goagent-iplist.html" target="_blank">http://cb.e-fly.org:81/archives/goagent-iplist.html</a></p>
+<p>在用$(&quot;a&quot;).click()方法, 触发a元素点击事件，进行页面跳转效果. 结果发现页面未发生跳转.</p>
 
-<p><strong>近期可用IP地址</strong>
-24.156.131.119|193.192.250.173|193.134.255.173|193.92.133.45|197.84.128.40|41.201.164.54|
-58.145.238.48|212.188.10.223|212.188.15.53|64.15.119.181|193.192.250.182|64.233.166.189|
-109.232.83.101|31.7.160.231|213.186.229.29|95.143.84.159|103.1.139.227|41.201.128.55|
-31.7.160.238|61.19.2.44|212.188.7.40|220.255.5.158|58.145.238.27|118.143.88.82|80.228.65.172|
-213.186.229.35|80.228.65.153|109.232.83.102|31.7.160.216|41.201.164.25|212.188.7.103|
-62.197.198.223|213.240.44.18|103.1.139.174|212.188.15.15|220.255.6.55|212.188.7.119|
-178.60.128.37|193.192.226.148|103.1.139.240|193.90.147.20|223.26.69.37|
-197.84.128.34|208.117.228.121|212.188.15.44|93.183.211.251|64.15.115.94|149.3.177.88|
-37.228.69.23|95.143.84.181|212.188.10.94</p>
+<h3>示例</h3>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&#39;utf-8&#39;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">&quot;btn&quot;</span><span class="nt">&gt;</span>按钮<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.baidu.com&quot;</span> <span class="na">target=</span><span class="s">&quot;_blank&quot;</span> <span class="na">id=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;</span>链接<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/jquery1.91.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#btn&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+        <span class="c1">//触发点击事件</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+<h3>解决方法</h3>
+
+<ul>
+<li>第一种: 用原生的a对象触发事件</li>
+</ul>
+
+<div class="highlight"><pre><code class="html">$(&quot;a&quot;)[0].click();
+</code></pre></div>
+
+<ul>
+<li>第二种: 通过事件冒泡触发事件</li>
+</ul>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.baidu.com&quot;</span> <span class="na">target=</span><span class="s">&quot;_blank&quot;</span> <span class="na">id=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">id=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;</span>链接<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+
+$(function(){
+    $(&quot;#btn&quot;).click(function(e){
+        //触发点击事件
+        $(&quot;#link&quot;).click();
+    });
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">
       
       <span class="next">
         上篇：
-        <a href="/python/2014/07/30/python.html">
-          mkstemp、mktemp、TemporaryFile区别
+        <a href="/git/2015/02/14/git.html">
+          git免密码(https方式)
         </a>
       </span>
        
       
       <span class="prev">
         下篇：
-        <a href="/%E5%85%B6%E5%AE%83/2014/08/03/qita.html">
-          不用翻墙的google地址
+        <a href="/html/2015/02/14/html-01.html">
+          浏览器拦截js弹出框
         </a>
       </span>
       
