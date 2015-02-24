@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      top命令查看单个进程
+      查看linux运行级别
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,45 +65,19 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  top命令查看单个进程
+  查看linux运行级别
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2015-02-15 22:11
+        2015-02-24 19:51
   </div>
 </h2>
 <!-- Author -->
 <hr>
 
 <div class="col-md-10">
-    <ul>
-<li>获取进程pid</li>
-</ul>
-
-<div class="highlight"><pre><code class="bash">➜  ~  pgrep zsh  
-2433
-2720
-11961
-12318
-</code></pre></div>
-
-<ul>
-<li>查看指定进程</li>
-</ul>
-
-<div class="highlight"><pre><code class="bash">➜  ~  top -p 12318
-</code></pre></div>
-
-<p>输出</p>
-
-<div class="highlight"><pre><code class="bash">top - 21:57:06 up  5:35,  5 users,  load average: 0.27, 0.16, 0.15
-Tasks:   1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
-%Cpu<span class="o">(</span>s<span class="o">)</span>:  6.6 us,  0.7 sy,  0.0 ni, 91.5 id,  1.1 wa,  0.0 hi,  0.0 si,  0.0 st
-KiB Mem:   4048232 total,  2410336 used,  1637896 free,   265268 buffers
-KiB Swap:  4079612 total,        0 used,  4079612 free,  1342440 cached
-
-  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND      
-12318 wyq       20   0  141596   6120   3788 S  0.0  0.2   0:00.09 zsh          
+    <div class="highlight"><pre><code class="bash">➜  ~  runlevel
+N 5
 </code></pre></div>
 
     <br/>
@@ -111,16 +85,16 @@ KiB Swap:  4079612 total,        0 used,  4079612 free,  1342440 cached
       
       <span class="next">
         上篇：
-        <a href="/html/2015/02/14/html-01.html">
-          浏览器拦截js弹出框
+        <a href="/linux/2015/02/15/linux.html">
+          top命令查看单个进程
         </a>
       </span>
        
       
       <span class="prev">
         下篇：
-        <a href="/linux/2015/02/24/runlevel.html">
-          查看linux运行级别
+        <a href="/linux/2015/02/24/linux-log.html">
+          linux启动日志
         </a>
       </span>
       

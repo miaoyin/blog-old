@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      top命令查看单个进程
+      chkconfig简介
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -65,64 +65,94 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  top命令查看单个进程
+  chkconfig简介
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2015-02-15 22:11
+        2015-02-24 21:38
   </div>
 </h2>
 <!-- Author -->
 <hr>
 
 <div class="col-md-10">
-    <ul>
-<li>获取进程pid</li>
+    <p>chkconfig是一种简单的命令行工具，用于帮助管理员对/etc/rc[0-6].d目录层次下的众多的符号链接进行直接操作。</p>
+
+<h3>语法</h3>
+
+<div class="highlight"><pre><code class="text">chkconfig --list [name]
+chkconfig --add name
+chkconfig --del name
+chkconfig [--level levels] name &lt;on|off|reset&gt;
+chkconfig [--level levels] name
+</code></pre></div>
+
+<p>--list 显示系统服务的运行状态(on或off)<br>
+--add  增加系统服务<br>
+--del  删除系统服务<br>
+--level 指定系统服务在哪个执行等级中开启或关闭<br>
+      等级0表示：表示关机<br>
+      等级1表示：单用户模式<br>
+      等级2表示：无网络连接的多用户命令行模式<br>
+      等级3表示：有网络连接的多用户命令行模式<br>
+      等级4表示：不可用<br>
+      等级5表示：带图形界面的多用户模式<br>
+      等级6表示：重新启动  </p>
+
+<h3>基本用法</h3>
+
+<ul>
+<li>查询当前所有自动启动的服务</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">➜  ~  pgrep zsh  
-2433
-2720
-11961
-12318
+<div class="highlight"><pre><code class="text">chkconfig --list 
+chkconfig --list [name] //查询特定服务
 </code></pre></div>
 
 <ul>
-<li>查看指定进程</li>
+<li>开机启动开启/关闭</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">➜  ~  top -p 12318
+<div class="highlight"><pre><code class="bash">chkconfig httpd on/off
 </code></pre></div>
 
-<p>输出</p>
+<ul>
+<li>指定服务运行等级</li>
+</ul>
 
-<div class="highlight"><pre><code class="bash">top - 21:57:06 up  5:35,  5 users,  load average: 0.27, 0.16, 0.15
-Tasks:   1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
-%Cpu<span class="o">(</span>s<span class="o">)</span>:  6.6 us,  0.7 sy,  0.0 ni, 91.5 id,  1.1 wa,  0.0 hi,  0.0 si,  0.0 st
-KiB Mem:   4048232 total,  2410336 used,  1637896 free,   265268 buffers
-KiB Swap:  4079612 total,        0 used,  4079612 free,  1342440 cached
-
-  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND      
-12318 wyq       20   0  141596   6120   3788 S  0.0  0.2   0:00.09 zsh          
+<div class="highlight"><pre><code class="bash">chkconfig --level 35 httpd on/off
 </code></pre></div>
+
+<p>设定httpd在等级3和5为开机运行服务.</p>
+
+<ul>
+<li>新增服务</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">chkconfig --add httpd
+</code></pre></div>
+
+<p>加入到chkconfig列表</p>
+
+<ul>
+<li>删除服务</li>
+</ul>
+
+<div class="highlight"><pre><code class="bash">chkconfig --del httpd
+</code></pre></div>
+
+<p>从chkconfig列表移除服务</p>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">
       
       <span class="next">
         上篇：
-        <a href="/html/2015/02/14/html-01.html">
-          浏览器拦截js弹出框
+        <a href="/linux/2015/02/24/linux-chkconfig-01.html">
+          服务chkconfig不支持
         </a>
       </span>
        
-      
-      <span class="prev">
-        下篇：
-        <a href="/linux/2015/02/24/runlevel.html">
-          查看linux运行级别
-        </a>
-      </span>
       
     </div>
     <hr>
