@@ -6,10 +6,12 @@ title: 妙音's blog
 <div id="home">
   <ul class="posts">
     {% for post in paginator.posts %}
-    <li><span>{{ post.date | date:"%Y-%m-%d" }}</span> &raquo;
-    <h5>
-    <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
-    </h5>
+        {% unless post.categories contains "净空法师" %}
+            <li><span>{{ post.date | date:"%Y-%m-%d" }}</span> &raquo;
+            <h5>
+            <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+            </h5>
+        {% endunless %}
     {% endfor %}
   </ul>
 </div>
