@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于python的最简jQuery File Upload单示例"
+title: "基于python的jQuery File Upload简单示例"
 date: "2015-03-27 13:36"
 category: "jquery"
 tags: ["flask", "插件"]
