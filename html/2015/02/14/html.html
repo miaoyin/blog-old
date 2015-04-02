@@ -82,7 +82,7 @@
 
 <h3>示例</h3>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&#39;utf-8&#39;</span><span class="nt">&gt;</span>
 <span class="nt">&lt;body&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">&quot;btn&quot;</span><span class="nt">&gt;</span>按钮<span class="nt">&lt;/button&gt;</span>
@@ -96,8 +96,7 @@
         <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
     <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <h3>解决方法</h3>
 
@@ -105,22 +104,20 @@
 <li>第一种: 用原生的a对象触发事件</li>
 </ul>
 
-<div class="highlight"><pre><code class="html">$(&quot;a&quot;)[0].click();
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">$(&quot;a&quot;)[0].click();</code></pre></div>
 
 <ul>
 <li>第二种: 通过事件冒泡触发事件</li>
 </ul>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.baidu.com&quot;</span> <span class="na">target=</span><span class="s">&quot;_blank&quot;</span> <span class="na">id=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">id=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;</span>链接<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.baidu.com&quot;</span> <span class="na">target=</span><span class="s">&quot;_blank&quot;</span> <span class="na">id=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">id=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;</span>链接<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
 
 $(function(){
     $(&quot;#btn&quot;).click(function(e){
         //触发点击事件
         $(&quot;#link&quot;).click();
     });
-<span class="nt">&lt;/script&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/script&gt;</span></code></pre></div>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">

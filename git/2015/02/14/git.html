@@ -76,20 +76,18 @@
 <hr>
 
 <div class="col-md-10">
-    <div class="highlight"><pre><code class="text language-text" data-lang="text">使用git push提交时，每次都要输入密码，次数多了，感觉挺麻烦. 如果git以ssh协议通讯，免密码可以用ssh公钥设置免登录。如果git时以https方式访问呢，该怎么办？下面方式可以解决这个问题.
+    <div class="highlight"><pre><code class="language-text" data-lang="text">使用git push提交时，每次都要输入密码，次数多了，感觉挺麻烦. 如果git以ssh协议通讯，免密码可以用ssh公钥设置免登录。如果git时以https方式访问呢，该怎么办？下面方式可以解决这个问题.
 </code></pre></div>
 <ul>
 <li>新建文件并保存密码</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">touch ~/.git-credentials
-vim ~/.git-credentials
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">touch ~/.git-credentials
+vim ~/.git-credentials</code></pre></div>
 
 <p>添加内容</p>
 
-<div class="highlight"><pre><code class="text">https://{username}:{password}@github.com
-</code></pre></div>
+<div class="highlight"><pre><code class="language-text" data-lang="text">https://{username}:{password}@github.com</code></pre></div>
 
 <ul>
 <li>添加git配置</li>
@@ -97,8 +95,7 @@ vim ~/.git-credentials
 
 <p>执行下面命令添加配置</p>
 
-<div class="highlight"><pre><code class="bash">git config --global credential.helper store
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git config --global credential.helper store</code></pre></div>
 
 <ul>
 <li>查看~/.gitconfig文件变化</li>
@@ -106,9 +103,8 @@ vim ~/.git-credentials
 
 <p>~/.gitconfig文件多出下面配置项</p>
 
-<div class="highlight"><pre><code class="text">[credential]
-    helper = store
-</code></pre></div>
+<div class="highlight"><pre><code class="language-text" data-lang="text">[credential]
+    helper = store</code></pre></div>
 
 <p>再尝试git push不再需要输入密码.</p>
 

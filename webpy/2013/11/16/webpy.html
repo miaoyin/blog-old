@@ -80,7 +80,7 @@
 使用过程中却发现每个auto_application默认有自己单独的cookie。
 范例</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno"> 1</span> <span class="c">#encoding=utf-8</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="c">#encoding=utf-8</span>
 <span class="lineno"> 2</span> <span class="kn">import</span> <span class="nn">web</span>
 <span class="lineno"> 3</span> <span class="n">appA</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">auto_application</span><span class="p">()</span>
 <span class="lineno"> 4</span> <span class="n">appB</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">auto_application</span><span class="p">()</span>
@@ -110,20 +110,17 @@
 <span class="lineno">28</span>     <span class="n">web</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="lineno">29</span>     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="lineno">30</span>     <span class="c">#print app.request(&quot;/save&quot;).data</span>
-<span class="lineno">31</span>     <span class="c">#print app.request(&quot;/get&quot;).data</span>
-</code></pre></div>
+<span class="lineno">31</span>     <span class="c">#print app.request(&quot;/get&quot;).data</span></code></pre></div>
 
 <p>上面代码，生成两个auto_application appA与appB。<br>
 appA处理所有以/save开头的url请求，appB处理所有以/get开头的url请求。  </p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="n">appA</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">auto_application</span><span class="p">()</span>
-<span class="lineno">2</span> <span class="n">appB</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">auto_application</span><span class="p">()</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="n">appA</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">auto_application</span><span class="p">()</span>
+<span class="lineno">2</span> <span class="n">appB</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">auto_application</span><span class="p">()</span></code></pre></div>
 
 <p>发送http://0.0.0.0:8080/save请求，将name信息保存在cookie中。</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="n">web</span><span class="o">.</span><span class="n">setcookie</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;wyq&quot;</span><span class="p">,</span> <span class="n">expires</span><span class="o">=</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="n">web</span><span class="o">.</span><span class="n">setcookie</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;wyq&quot;</span><span class="p">,</span> <span class="n">expires</span><span class="o">=</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span></code></pre></div>
 
 <p>发送http://0.0.0.0:8080/get请求，获取name值。<br>
 预想是返回name值，却发现结果为空。什么原因呢？<br>
@@ -138,8 +135,7 @@ appA处理所有以/save开头的url请求，appB处理所有以/get开头的url
 
 <p>如何解决呢？办法就是在设置cookie时添加path=&quot;/&quot;的属性，即可解决。  </p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="n">web</span><span class="o">.</span><span class="n">setcookie</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;wyq&quot;</span><span class="p">,</span> <span class="n">expires</span><span class="o">=</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="n">web</span><span class="o">.</span><span class="n">setcookie</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;wyq&quot;</span><span class="p">,</span> <span class="n">expires</span><span class="o">=</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">)</span></code></pre></div>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">

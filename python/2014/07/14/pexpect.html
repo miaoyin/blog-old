@@ -84,26 +84,23 @@
 
 <p>run功能相对简单，只能实现简单交互</p>
 
-<div class="highlight"><pre><code class="python"><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="n">timeout</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">withexitstatus</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">events</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">extra_args</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logfile</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="n">timeout</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">withexitstatus</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">events</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">extra_args</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logfile</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span></code></pre></div>
 
 <p>run运行命令，然后返回结果，与os.system类似.</p>
 
 <p><strong>示例</strong></p>
 
-<div class="highlight"><pre><code class="python"><span class="n">pexpect</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s">&#39;ls -la&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">pexpect</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s">&#39;ls -la&#39;</span><span class="p">)</span>
  
 <span class="c"># 返回值(输出，退出状态)</span>
-<span class="p">(</span><span class="n">command_output</span><span class="p">,</span> <span class="n">exitstatus</span><span class="p">)</span> <span class="o">=</span> <span class="n">pexpect</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s">&#39;ls -l /bin&#39;</span><span class="p">,</span> <span class="n">withexitstatus</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
+<span class="p">(</span><span class="n">command_output</span><span class="p">,</span> <span class="n">exitstatus</span><span class="p">)</span> <span class="o">=</span> <span class="n">pexpect</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s">&#39;ls -l /bin&#39;</span><span class="p">,</span> <span class="n">withexitstatus</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
 
 <h2>spawn类</h2>
 
 <p>spawn功能比run强大，可以实现更复杂交互</p>
 
-<div class="highlight"><pre><code class="python"><span class="k">class</span> <span class="nc">spawn</span> 
-    <span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[],</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">maxread</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">searchwindowsize</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logfile</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">spawn</span> 
+    <span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[],</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">maxread</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">searchwindowsize</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logfile</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span></code></pre></div>
 
 <ul>
 <li>timeout指定交互是等待的超时值</li>
@@ -114,13 +111,12 @@
 
 <p><strong>工作过程</strong></p>
 
-<div class="highlight"><pre><code class="python"><span class="c"># 第一步与终端建立连接</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># 第一步与终端建立连接</span>
 <span class="n">child</span> <span class="o">=</span> <span class="n">pexpect</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="s">&#39;scp foo user@example.com:.&#39;</span><span class="p">)</span>
 <span class="c"># 第二步等待终端返回匹配内容</span>
 <span class="n">child</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s">&#39;Password:&#39;</span><span class="p">)</span>
 <span class="c"># 第三步根据返回内容发送命令进行交互</span>
-<span class="n">child</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">mypassword</span><span class="p">)</span>
-</code></pre></div>
+<span class="n">child</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">mypassword</span><span class="p">)</span></code></pre></div>
 
 <h2>pxssh类</h2>
 
@@ -131,7 +127,7 @@
 
 <p>工作过程与pexpect相同</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno"> 1</span> <span class="c"># 初始化pxssh示例</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="c"># 初始化pxssh示例</span>
 <span class="lineno"> 2</span> <span class="n">s</span> <span class="o">=</span> <span class="n">pxssh</span><span class="o">.</span><span class="n">pxssh</span><span class="p">()</span> 
 <span class="lineno"> 3</span>  
 <span class="lineno"> 4</span> <span class="n">hostname</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&#39;hostname: &#39;</span><span class="p">)</span> 
@@ -158,8 +154,7 @@
 <span class="lineno">25</span> <span class="k">print</span> <span class="n">s</span><span class="o">.</span><span class="n">before</span> 
 <span class="lineno">26</span>  
 <span class="lineno">27</span> <span class="c"># 释放ssh连接</span>
-<span class="lineno">28</span> <span class="n">s</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
-</code></pre></div>
+<span class="lineno">28</span> <span class="n">s</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span></code></pre></div>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">

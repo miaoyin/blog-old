@@ -82,9 +82,8 @@
 
 <p>启动一个web服务器，提供端口.</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>python -m SimpleHTTPServer 8080
-Serving HTTP on 0.0.0.0 port 8080 ...
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>python -m SimpleHTTPServer 8080
+Serving HTTP on 0.0.0.0 port <span class="m">8080</span> ...</code></pre></div>
 
 <p>用其它web服务器提供端口也一样，由于python比较方便，这里就用它</p>
 
@@ -96,34 +95,31 @@ Serving HTTP on 0.0.0.0 port 8080 ...
 
 <p>先用telnet连接不存在的端口</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>telnet localhost 9000
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>telnet localhost 9000
 Trying 127.0.0.1...
-telnet: connect to address 127.0.0.1: Connection refused
-</code></pre></div>
+telnet: connect to address 127.0.0.1: Connection refused</code></pre></div>
 
 <p>直接提示连接被拒绝</p>
 
 <p>再连接上面提供的端口</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>telnet localhost 8080
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>telnet localhost 8080
 Trying 127.0.0.1...
 Connected to localhost.
-Escape character is <span class="s1">&#39;^]&#39;</span>.
-</code></pre></div>
+Escape character is <span class="s1">&#39;^]&#39;</span>.</code></pre></div>
 
 <p>看到&quot;Connected to localhost.&quot; 可以知道连接成功了.</p>
 
 <p>后台服务器有什么反映？</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost monitor<span class="o">]</span><span class="nv">$ </span>python -m SimpleHTTPServer 8080
-Serving HTTP on 0.0.0.0 port 8080 ...
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost monitor<span class="o">]</span><span class="nv">$ </span>python -m SimpleHTTPServer 8080
+Serving HTTP on 0.0.0.0 port <span class="m">8080</span> ...</code></pre></div>
 
 <p>没有任何反映</p>
 
 <p>此时telnet停住了，随便输入一个字符&quot;a&quot;，然后回车</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>telnet localhost 8080
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>telnet localhost 8080
 Trying 127.0.0.1...
 Connected to localhost.
 Escape character is <span class="s1">&#39;^]&#39;</span>.
@@ -137,16 +133,14 @@ a
 &lt;p&gt;Message: Bad request syntax <span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">)</span>.
 &lt;p&gt;Error code explanation: <span class="nv">400</span> <span class="o">=</span> Bad request syntax or unsupported method.
 &lt;/body&gt;
-Connection closed by foreign host.
-</code></pre></div>
+Connection closed by foreign host.</code></pre></div>
 
 <p>再看服务器</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost monitor<span class="o">]</span><span class="nv">$ </span>python -m SimpleHTTPServer 8080
-Serving HTTP on 0.0.0.0 port 8080 ...
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost monitor<span class="o">]</span><span class="nv">$ </span>python -m SimpleHTTPServer 8080
+Serving HTTP on 0.0.0.0 port <span class="m">8080</span> ...
 127.0.0.1 - - <span class="o">[</span>22/Aug/2014 07:15:16<span class="o">]</span> code 400, message Bad request syntax <span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">)</span>
-127.0.0.1 - - <span class="o">[</span>22/Aug/2014 07:15:16<span class="o">]</span> <span class="s2">&quot;a&quot;</span> 400 -
-</code></pre></div>
+127.0.0.1 - - <span class="o">[</span>22/Aug/2014 07:15:16<span class="o">]</span> <span class="s2">&quot;a&quot;</span> <span class="m">400</span> -</code></pre></div>
 
 <p>上面是linux环境下telnet连接一个web服务端口的情况. </p>
 
@@ -161,22 +155,21 @@ usernmae可以随意  </p>
 
 <p>连接不存在端口</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>ssh -v -p 9000 wyq@localhost
-OpenSSH_6.4, OpenSSL 1.0.1e-fips 11 Feb 2013
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>ssh -v -p <span class="m">9000</span> wyq@localhost
+OpenSSH_6.4, OpenSSL 1.0.1e-fips <span class="m">11</span> Feb 2013
 debug1: Reading configuration data /home/wyq/.ssh/config
 debug1: Reading configuration data /etc/ssh/ssh_config
 debug1: /etc/ssh/ssh_config line 51: Applying options <span class="k">for</span> *
 debug1: Connecting to localhost <span class="o">[</span>127.0.0.1<span class="o">]</span> port 9000.
 debug1: connect to address 127.0.0.1 port 9000: Connection refused
-ssh: connect to host localhost port 9000: Connection refused
-</code></pre></div>
+ssh: connect to host localhost port 9000: Connection refused</code></pre></div>
 
 <p>&quot;Connection refused&quot;表示端口不可用</p>
 
 <p>连接存在的端口</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>ssh -v -p 8080 wyq@localhost
-OpenSSH_6.4, OpenSSL 1.0.1e-fips 11 Feb 2013
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>ssh -v -p <span class="m">8080</span> wyq@localhost
+OpenSSH_6.4, OpenSSL 1.0.1e-fips <span class="m">11</span> Feb 2013
 debug1: Reading configuration data /home/wyq/.ssh/config
 debug1: Reading configuration data /etc/ssh/ssh_config
 debug1: /etc/ssh/ssh_config line 51: Applying options <span class="k">for</span> *
@@ -188,7 +181,7 @@ debug1: identity file /home/wyq/.ssh/id_dsa <span class="nb">type</span> -1
 debug1: identity file /home/wyq/.ssh/id_dsa-cert <span class="nb">type</span> -1
 debug1: identity file /home/wyq/.ssh/id_ecdsa <span class="nb">type</span> -1
 debug1: identity file /home/wyq/.ssh/id_ecdsa-cert <span class="nb">type</span> -1
-debug1: Enabling compatibility mode <span class="k">for </span>protocol 2.0
+debug1: Enabling compatibility mode <span class="k">for</span> protocol 2.0
 debug1: Local version string SSH-2.0-OpenSSH_6.4
 debug1: ssh_exchange_identification: &lt;head&gt;
  
@@ -208,18 +201,16 @@ debug1: ssh_exchange_identification: &lt;p&gt;Error code explanation: <span clas
  
 debug1: ssh_exchange_identification: &lt;/body&gt;
  
-ssh_exchange_identification: Connection closed by remote host
-</code></pre></div>
+ssh_exchange_identification: Connection closed by remote host</code></pre></div>
 
 <p>&quot;Connection established&quot; 表示已经连上端口</p>
 
 <p>服务器输出</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>python -m SimpleHTTPServer 8080
-Serving HTTP on 0.0.0.0 port 8080 ...
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>python -m SimpleHTTPServer 8080
+Serving HTTP on 0.0.0.0 port <span class="m">8080</span> ...
 127.0.0.1 - - <span class="o">[</span>22/Aug/2014 13:32:55<span class="o">]</span> code 400, message Bad request syntax <span class="o">(</span><span class="s1">&#39;SSH-2.0-OpenSSH_6.4&#39;</span><span class="o">)</span>
-127.0.0.1 - - <span class="o">[</span>22/Aug/2014 13:32:55<span class="o">]</span> <span class="s2">&quot;SSH-2.0-OpenSSH_6.4&quot;</span> 400 -
-</code></pre></div>
+127.0.0.1 - - <span class="o">[</span>22/Aug/2014 13:32:55<span class="o">]</span> <span class="s2">&quot;SSH-2.0-OpenSSH_6.4&quot;</span> <span class="m">400</span> -</code></pre></div>
 
 <h2>用wget判断</h2>
 
@@ -229,26 +220,24 @@ Serving HTTP on 0.0.0.0 port 8080 ...
 
 <p>连接不存在的端口</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>wget localhost:9000
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>wget localhost:9000
 --2014-08-22 13:36:42--  http://localhost:9000/
 正在解析主机 localhost <span class="o">(</span>localhost<span class="o">)</span>... 127.0.0.1
-正在连接 localhost <span class="o">(</span>localhost<span class="o">)</span><span class="p">|</span>127.0.0.1<span class="p">|</span>:9000... 失败：拒绝连接。
-</code></pre></div>
+正在连接 localhost <span class="o">(</span>localhost<span class="o">)</span><span class="p">|</span>127.0.0.1<span class="p">|</span>:9000... 失败：拒绝连接。</code></pre></div>
 
 <p>连接存在的端口</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>wget localhost:8080
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>wget localhost:8080
 --2014-08-22 13:37:22--  http://localhost:8080/
 正在解析主机 localhost <span class="o">(</span>localhost<span class="o">)</span>... 127.0.0.1
 正在连接 localhost <span class="o">(</span>localhost<span class="o">)</span><span class="p">|</span>127.0.0.1<span class="p">|</span>:8080... 已连接。
-已发出 HTTP 请求，正在等待回应... 200 OK
+已发出 HTTP 请求，正在等待回应... <span class="m">200</span> OK
 长度：2770 <span class="o">(</span>2.7K<span class="o">)</span> <span class="o">[</span>text/html<span class="o">]</span>
 正在保存至: “index.html”
  
 100%<span class="o">[======================================</span>&gt;<span class="o">]</span> 2,770       --.-K/s 用时 0s      
  
-2014-08-22 13:37:22 <span class="o">(</span>105 MB/s<span class="o">)</span> - 已保存 “index.html” <span class="o">[</span>2770/2770<span class="o">])</span>
-</code></pre></div>
+2014-08-22 13:37:22 <span class="o">(</span><span class="m">105</span> MB/s<span class="o">)</span> - 已保存 “index.html” <span class="o">[</span>2770/2770<span class="o">])</span></code></pre></div>
 
 <h2>总结</h2>
 

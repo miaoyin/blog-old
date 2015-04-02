@@ -82,20 +82,17 @@
 
 <h2>语法</h2>
 
-<div class="highlight"><pre><code class="text">stringObject.replace(regexp/substr, newSubStr/function)
-</code></pre></div>
+<div class="highlight"><pre><code class="language-text" data-lang="text">stringObject.replace(regexp/substr, newSubStr/function)</code></pre></div>
 
 <p><strong>参数</strong>  </p>
 
-<div class="highlight"><pre><code class="text">regexp/substr       正则表达式/字符串  
-newSubStr/function  替换文本/生成替换文本的函数 
-</code></pre></div>
+<div class="highlight"><pre><code class="language-text" data-lang="text">regexp/substr       正则表达式/字符串  
+newSubStr/function  替换文本/生成替换文本的函数</code></pre></div>
 
 <p><strong>示例</strong></p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&quot;Visit Microsoft!&quot;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;Microsoft&quot;</span><span class="p">,</span> <span class="s2">&quot;W3Schools&quot;</span><span class="p">);</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&quot;Visit Microsoft!&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;Microsoft&quot;</span><span class="p">,</span> <span class="s2">&quot;W3Schools&quot;</span><span class="p">);</span></code></pre></div>
 
 <h2>替换字符</h2>
 
@@ -115,17 +112,15 @@ $$ 直接量符号。  </p>
 
 <p><strong>示例</strong></p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Doe, John&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Doe, John&quot;</span><span class="p">;</span>
 <span class="nx">name</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(\w+)\s*, \s*(\w+)/</span><span class="p">,</span> <span class="s2">&quot;$2 $1&quot;</span><span class="p">);</span>
-<span class="c1">//输出&quot;John Doe&quot;</span>
-</code></pre></div>
+<span class="c1">//输出&quot;John Doe&quot;</span></code></pre></div>
 
 <h2>替换函数</h2>
 
 <p>替换函数说明  </p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">function</span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">,...,</span> <span class="nx">offset</span><span class="p">,</span> <span class="nx">string</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">,...,</span> <span class="nx">offset</span><span class="p">,</span> <span class="nx">string</span><span class="p">)</span></code></pre></div>
 
 <p>match      匹配到的字符串
 p1, p2...  匹配到的子表达式
@@ -134,7 +129,7 @@ string     整个字符串</p>
 
 <p>示例</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;ace:mm-Abc&quot;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/([\:\-\_]+(.))/</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">,</span> <span class="nx">offset</span><span class="p">,</span> <span class="nx">total</span><span class="p">){</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;ace:mm-Abc&quot;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/([\:\-\_]+(.))/</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">,</span> <span class="nx">offset</span><span class="p">,</span> <span class="nx">total</span><span class="p">){</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;match:&quot;</span> <span class="o">+</span> <span class="nx">_</span><span class="p">);</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;p1:&quot;</span> <span class="o">+</span> <span class="nx">separator</span><span class="p">);</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;p2:&quot;</span> <span class="o">+</span> <span class="nx">letter</span><span class="p">);</span>
@@ -150,8 +145,7 @@ string     整个字符串</p>
 <span class="cm">offset:3</span>
 <span class="cm">total:ace:mm-Abc</span>
 <span class="cm">aceMm-Abc </span>
-<span class="cm">*/</span>
-</code></pre></div>
+<span class="cm">*/</span></code></pre></div>
 
 <p>上面正则表达式中有两个子表达式<br>
 p1是子表达式([:-_]+(.))匹配到的内容&quot;:m&quot;<br>

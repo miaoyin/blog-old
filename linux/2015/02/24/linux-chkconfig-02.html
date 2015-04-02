@@ -80,12 +80,11 @@
 
 <h3>语法</h3>
 
-<div class="highlight"><pre><code class="text">chkconfig --list [name]
+<div class="highlight"><pre><code class="language-text" data-lang="text">chkconfig --list [name]
 chkconfig --add name
 chkconfig --del name
 chkconfig [--level levels] name &lt;on|off|reset&gt;
-chkconfig [--level levels] name
-</code></pre></div>
+chkconfig [--level levels] name</code></pre></div>
 
 <p>--list 显示系统服务的运行状态(on或off)<br>
 --add  增加系统服务<br>
@@ -105,23 +104,20 @@ chkconfig [--level levels] name
 <li>查询当前所有自动启动的服务</li>
 </ul>
 
-<div class="highlight"><pre><code class="text">chkconfig --list 
-chkconfig --list [name] //查询特定服务
-</code></pre></div>
+<div class="highlight"><pre><code class="language-text" data-lang="text">chkconfig --list 
+chkconfig --list [name] //查询特定服务</code></pre></div>
 
 <ul>
 <li>开机启动开启/关闭</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">chkconfig httpd on/off
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">chkconfig httpd on/off</code></pre></div>
 
 <ul>
 <li>指定服务运行等级</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">chkconfig --level 35 httpd on/off
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">chkconfig --level <span class="m">35</span> httpd on/off</code></pre></div>
 
 <p>设定httpd在等级3和5为开机运行服务.</p>
 
@@ -129,8 +125,7 @@ chkconfig --list [name] //查询特定服务
 <li>新增服务</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">chkconfig --add httpd
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">chkconfig --add httpd</code></pre></div>
 
 <p>加入到chkconfig列表</p>
 
@@ -138,8 +133,7 @@ chkconfig --list [name] //查询特定服务
 <li>删除服务</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">chkconfig --del httpd
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">chkconfig --del httpd</code></pre></div>
 
 <p>从chkconfig列表移除服务</p>
 
@@ -153,6 +147,13 @@ chkconfig --list [name] //查询特定服务
         </a>
       </span>
        
+      
+      <span class="prev">
+        下篇：
+        <a href="/linux/2015/02/26/debian-adduser.html">
+          debian创建用户没有宿主目录
+        </a>
+      </span>
       
     </div>
     <hr>

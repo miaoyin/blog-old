@@ -84,59 +84,51 @@
 <li>启用端口</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">iptables -A INPUT -p tcp --dport <span class="m">8000</span> -j ACCEPT</code></pre></div>
 
 <ul>
 <li>保存配置</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">sudo serivce iptables save
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo serivce iptables save</code></pre></div>
 
 <ul>
 <li>重启iptables，使配置生效</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">sudo serivce iptables restart
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo serivce iptables restart</code></pre></div>
 
 <h2>配置文件</h2>
 
 <p>永久生效
 修改/etc/sysconfig/iptables文件</p>
 
-<div class="highlight"><pre><code class="bash">-A INPUT -p tcp --dport 8080 -j ACCEPT
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-A INPUT -p tcp --dport <span class="m">8080</span> -j ACCEPT</code></pre></div>
 
 <p>注意要加在最后一个COMMIT前</p>
 
 <p>否则会出现错误</p>
 
-<div class="highlight"><pre><code class="bash">Redirecting to /bin/systemctl restart  iptables.service
-Job <span class="k">for </span>iptables.service failed. See <span class="s1">&#39;systemctl status iptables.service&#39;</span> and <span class="s1">&#39;journalctl -xn&#39;</span> <span class="k">for </span>details.
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Redirecting to /bin/systemctl restart  iptables.service
+Job <span class="k">for</span> iptables.service failed. See <span class="s1">&#39;systemctl status iptables.service&#39;</span> and <span class="s1">&#39;journalctl -xn&#39;</span> <span class="k">for</span> details.</code></pre></div>
 
 <h2>基本用法</h2>
 
 <p>查看本机iptables设置</p>
 
-<div class="highlight"><pre><code class="bash">iptables -L -n
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">iptables -L -n</code></pre></div>
 
 <ul>
 <li>启用端口</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">iptables -A INPUT -p tcp --dport <span class="m">8000</span> -j ACCEPT</code></pre></div>
 
 <ul>
 <li>禁用端口</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">iptables -A INPUT -p tcp --dport 8000 -j REJECT
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">iptables -A INPUT -p tcp --dport <span class="m">8000</span> -j REJECT</code></pre></div>
 
 <ul>
 <li>清除规则

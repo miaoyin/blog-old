@@ -82,26 +82,23 @@
 
 <p>img元素自带onerror属性，加载失败时，触发error事件</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;image.gif&quot;</span> <span class="na">onerror=</span><span class="s">&#39;this.src=&quot;default.gif&quot;</span> <span class="nt">/&gt;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;image.gif&quot;</span> <span class="na">onerror=</span><span class="s">&#39;this.src=&quot;default.gif&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
 
 <h2>jquery.error函数</h2>
 
 <p>jquery提供对应的事件处理函数</p>
 
-<div class="highlight"><pre><code class="html">$(&#39;img&#39;).error(function(){
+<div class="highlight"><pre><code class="language-html" data-lang="html">$(&#39;img&#39;).error(function(){
     $(this).attr(&#39;src&#39;,&quot;default.gif&quot;);
-})
-</code></pre></div>
+})</code></pre></div>
 
 <h2>jquery.one函数</h2>
 
 <p>使用上面两种方法，假如默认图片也加载失败，则变成死循环. 此时可使用one()绑定事件</p>
 
-<div class="highlight"><pre><code class="html">$(&quot;img&quot;).one(&quot;error&quot;, function(e){
+<div class="highlight"><pre><code class="language-html" data-lang="html">$(&quot;img&quot;).one(&quot;error&quot;, function(e){
      $(this).attr(&quot;src&quot;, &quot;default.gif&quot;);
-});
-</code></pre></div>
+});</code></pre></div>
 
 <p>另外error事件，不支持冒泡，jquery.delegate函数捕捉不到error事件。</p>
 

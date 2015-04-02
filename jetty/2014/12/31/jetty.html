@@ -87,8 +87,7 @@
 在下面路径找到webdefault.xml文件</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\.</span>m2<span class="se">\r</span>epository<span class="se">\o</span>rg<span class="se">\e</span>clipse<span class="se">\j</span>etty<span class="se">\j</span>etty-webapp<span class="se">\9</span>.2.6.v20141205
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\.</span>m2<span class="se">\r</span>epository<span class="se">\o</span>rg<span class="se">\e</span>clipse<span class="se">\j</span>etty<span class="se">\j</span>etty-webapp<span class="se">\9</span>.2.6.v20141205</code></pre></div>
 
 <p>如果安装了jetty服务器，在它的etc目录下也可以取到webdefault.xml文件</p>
 
@@ -97,17 +96,16 @@
 webdefault.xml配置</li>
 </ul>
 
-<div class="highlight"><pre><code class="xml"><span class="nt">&lt;init-param&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;init-param&gt;</span>
   <span class="nt">&lt;param-name&gt;</span>useFileMappedBuffer<span class="nt">&lt;/param-name&gt;</span>
   <span class="nt">&lt;param-value&gt;</span>false<span class="nt">&lt;/param-value&gt;</span>
-<span class="nt">&lt;/init-param&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/init-param&gt;</span></code></pre></div>
 
 <ul>
 <li><strong>新增defaultsDescriptor配置项</strong><br></li>
 </ul>
 
-<div class="highlight"><pre><code class="xml"><span class="nt">&lt;plugin&gt;</span>  
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;plugin&gt;</span>  
     <span class="nt">&lt;groupId&gt;</span>org.eclipse.jetty<span class="nt">&lt;/groupId&gt;</span>  
     <span class="nt">&lt;artifactId&gt;</span>jetty-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>  
     <span class="nt">&lt;version&gt;</span>9.2.6.v20141205<span class="nt">&lt;/version&gt;</span>  
@@ -121,16 +119,14 @@ webdefault.xml配置</li>
             <span class="nt">&lt;defaultsDescriptor&gt;</span>${basedir}/WebRoot/resources/webdefault.xml<span class="nt">&lt;/defaultsDescriptor&gt;</span>
         <span class="nt">&lt;/webApp&gt;</span> 
     <span class="nt">&lt;/configuration&gt;</span>
-<span class="nt">&lt;/plugin&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/plugin&gt;</span></code></pre></div>
 
 <ul>
 <li><strong>webdefault.xml加载是否成功</strong><br>
 控制台输出如下，表示加载了webdefualt.xml</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>INFO<span class="o">]</span> Web <span class="nv">defaults</span> <span class="o">=</span> .... /WebRoot/resources/webdefault.xml
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>INFO<span class="o">]</span> Web <span class="nv">defaults</span> <span class="o">=</span> .... /WebRoot/resources/webdefault.xml</code></pre></div>
 
 <h2>感受</h2>
 

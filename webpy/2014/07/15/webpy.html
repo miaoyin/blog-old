@@ -78,7 +78,7 @@
 <div class="col-md-10">
     <p>在用webpy的db.insert()向postgres插入数据时出现</p>
 
-<div class="highlight"><pre><code class="bash">Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
   File <span class="s2">&quot;upgrade2.0.py&quot;</span>, line 170, in &lt;module&gt;
     copy_webservice<span class="o">()</span>
   File <span class="s2">&quot;upgrade2.0.py&quot;</span>, line 165, in copy_webservice
@@ -89,12 +89,11 @@
     <span class="nv">out</span> <span class="o">=</span> cur.execute<span class="o">(</span>query, params<span class="o">)</span>
   File <span class="s2">&quot;/usr/lib/python2.7/site-packages/DBUtils/SteadyDB.py&quot;</span>, line 631, in tough_method
     raise error <span class="c"># reraise the original error again</span>
-psycopg2.OperationalError: 错误:  在此会话中序列 <span class="s2">&quot;top_node_location_id_seq&quot;</span> 的 currval 仍没被定义
-</code></pre></div>
+psycopg2.OperationalError: 错误:  在此会话中序列 <span class="s2">&quot;top_node_location_id_seq&quot;</span> 的 currval 仍没被定义</code></pre></div>
 
 <p>找到/lib/python2.7/site-packages/web/db.py</p>
 
-<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">_process_insert_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">tablename</span><span class="p">,</span> <span class="n">seqname</span><span class="p">):</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_process_insert_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">tablename</span><span class="p">,</span> <span class="n">seqname</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">seqname</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="c"># when seqname is not provided guess the seqname and make sure it exists</span>
         <span class="n">seqname</span> <span class="o">=</span> <span class="n">tablename</span> <span class="o">+</span> <span class="s">&quot;_id_seq&quot;</span>
@@ -106,8 +105,7 @@ psycopg2.OperationalError: 错误:  在此会话中序列 <span class="s2">&quot
         <span class="c">#query += &quot;; SELECT currval(&#39;%s&#39;)&quot; % seqname</span>
         <span class="k">pass</span>
          
-    <span class="k">return</span> <span class="n">query</span>
-</code></pre></div>
+    <span class="k">return</span> <span class="n">query</span></code></pre></div>
 
 <p>原因是webpy在insert时，有一个额外的select使用currval获取当前序列值，但是在postgres9.3中已经不支持currval()了.<br>
 看来webpy作者去世，后面没有更新维护了</p>

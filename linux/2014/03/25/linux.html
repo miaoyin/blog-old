@@ -79,7 +79,7 @@
     <p>在Linux系统中，监听1024以下端口需要root权限。因此，如果想监听80，需要使用sudo命令启动程序。
 * 示例</p>
 
-<div class="highlight"><pre><code class="bash"><span class="lineno"> 1</span> <span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>python -m SimpleHTTPServer 80
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1</span> <span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>python -m SimpleHTTPServer 80
 <span class="lineno"> 2</span> Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
 <span class="lineno"> 3</span>   File <span class="s2">&quot;/usr/lib64/python2.7/runpy.py&quot;</span>, line 162, in _run_module_as_main
 <span class="lineno"> 4</span>     <span class="s2">&quot;__main__&quot;</span>, fname, loader, pkg_name<span class="o">)</span>
@@ -98,9 +98,8 @@
 <span class="lineno">17</span>   File <span class="s2">&quot;/usr/lib64/python2.7/SocketServer.py&quot;</span>, line 430, in server_bind
 <span class="lineno">18</span>     self.socket.bind<span class="o">(</span>self.server_address<span class="o">)</span>
 <span class="lineno">19</span>   File <span class="s2">&quot;/usr/lib64/python2.7/socket.py&quot;</span>, line 224, in meth
-<span class="lineno">20</span>     <span class="k">return </span>getattr<span class="o">(</span>self._sock,name<span class="o">)(</span>*args<span class="o">)</span>
-<span class="lineno">21</span> socket.error: <span class="o">[</span>Errno 13<span class="o">]</span> Permission denied
-</code></pre></div>
+<span class="lineno">20</span>     <span class="k">return</span> getattr<span class="o">(</span>self._sock,name<span class="o">)(</span>*args<span class="o">)</span>
+<span class="lineno">21</span> socket.error: <span class="o">[</span>Errno 13<span class="o">]</span> Permission denied</code></pre></div>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">

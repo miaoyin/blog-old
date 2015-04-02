@@ -78,8 +78,7 @@
 <div class="col-md-10">
     <p>在gvim中ibus敲字时，偶尔会在n秒之后才显示到屏幕，反应死慢。控制台会看到下面的错误信息.</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">(</span>gvim:77687<span class="o">)</span>: IBUS-WARNING **: Process Key Event failed: Timeout was reached。
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">(</span>gvim:77687<span class="o">)</span>: IBUS-WARNING **: Process Key Event failed: Timeout was reached。</code></pre></div>
 
 <p>暂时无法搞清具体原因，所以用重启ibus的笨办法解决。</p>
 
@@ -87,8 +86,7 @@
 <li>杀死ibus进程</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">ps -ef <span class="p">|</span>grep ibus-daemon
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ps -ef <span class="p">|</span>grep ibus-daemon</code></pre></div>
 
 <p>找到进程，然后kill掉</p>
 
@@ -96,8 +94,7 @@
 <li>启动 ibus</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">ibus-daemon -d -x -r
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ibus-daemon -d -x -r</code></pre></div>
 
 <p>-d 作为后台程序运行</p>
 

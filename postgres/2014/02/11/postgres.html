@@ -78,7 +78,7 @@
 <div class="col-md-10">
     <h2>示例</h2>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="n">WITH</span> <span class="n">RECURSIVE</span> <span class="n">t</span> <span class="n">AS</span> <span class="p">(</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="n">WITH</span> <span class="n">RECURSIVE</span> <span class="n">t</span> <span class="n">AS</span> <span class="p">(</span>
 <span class="lineno">2</span>     <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">danger_classify</span> <span class="nn">where</span> <span class="nn">parent_id</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="lineno">3</span>  
 <span class="lineno">4</span>     <span class="n">UNION</span> <span class="n">ALL</span>
@@ -86,8 +86,7 @@
 <span class="lineno">6</span>     <span class="n">select</span> <span class="n">dc</span><span class="o">.*</span> <span class="kn">from</span> <span class="nn">danger_classify</span> <span class="nn">dc</span><span class="p">,</span> <span class="n">t</span>
 <span class="lineno">7</span>     <span class="n">where</span> <span class="n">dc</span><span class="o">.</span><span class="n">parent_id</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">id</span>
 <span class="lineno">8</span> <span class="p">)</span>
-<span class="lineno">9</span> <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">t</span><span class="p">;</span>
-</code></pre></div>
+<span class="lineno">9</span> <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">t</span><span class="p">;</span></code></pre></div>
 
 <p>运行过程
 包含recursive的关键字，需要有union或者union all<br>
@@ -98,7 +97,7 @@
 
 <h2>解析为树形数据</h2>
 
-<div class="highlight"><pre><code class="python"><span class="lineno"> 1</span> <span class="k">def</span> <span class="nf">get_tree_data</span><span class="p">():</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="k">def</span> <span class="nf">get_tree_data</span><span class="p">():</span>
 <span class="lineno"> 2</span>     <span class="n">sql</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
 <span class="lineno"> 3</span> <span class="s">        WITH RECURSIVE t AS (</span>
 <span class="lineno"> 4</span> <span class="s">            select * from danger_classify where parent_id = -1</span>
@@ -119,8 +118,7 @@
 <span class="lineno">19</span>             <span class="n">trees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
 <span class="lineno">20</span>         <span class="k">else</span><span class="p">:</span>
 <span class="lineno">21</span>             <span class="n">temp</span><span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">parent_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-<span class="lineno">22</span>     <span class="k">return</span> <span class="n">trees</span>
-</code></pre></div>
+<span class="lineno">22</span>     <span class="k">return</span> <span class="n">trees</span></code></pre></div>
 
 <p>原理是借用了引用的特性。在temp中平铺所有的节点，在trees中保存结果。在temp中操作来改变trees中的结构，形成树状.</p>
 

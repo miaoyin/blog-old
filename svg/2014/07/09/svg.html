@@ -80,7 +80,7 @@
 
 <p>最常见的在线条上画箭头代码  </p>
 
-<div class="highlight"><pre><code class="html"><span class="lineno"> 1</span> <span class="nt">&lt;svg&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;svg&gt;</span>
 <span class="lineno"> 2</span>     <span class="c">&lt;!-- 预定义marker--&gt;</span>
 <span class="lineno"> 3</span>     <span class="nt">&lt;defs&gt;</span>
 <span class="lineno"> 4</span>         <span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&quot;arrow&quot;</span> <span class="na">refX=</span><span class="s">&quot;0&quot;</span> <span class="na">refY=</span><span class="s">&quot;3&quot;</span> <span class="na">markerWidth=</span><span class="s">&quot;20&quot;</span> <span class="na">markerHeight=</span><span class="s">&quot;20&quot;</span> <span class="na">orient=</span><span class="s">&quot;auto&quot;</span><span class="nt">&gt;</span>
@@ -90,8 +90,7 @@
 <span class="lineno"> 8</span>     <span class="nt">&lt;/defs&gt;</span>
 <span class="lineno"> 9</span>     <span class="c">&lt;!-- 引用预定义的marker --&gt;</span>
 <span class="lineno">10</span>     <span class="nt">&lt;line</span> <span class="na">class=</span><span class="s">&quot;link&quot;</span> <span class="na">marker-end=</span><span class="s">&quot;url(#arrow)&quot;</span> <span class="na">x1=</span><span class="s">&quot;0&quot;</span> <span class="na">y1=</span><span class="s">&quot;0&quot;</span> <span class="na">x2=</span><span class="s">&quot;80&quot;</span> <span class="na">y2=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;&lt;/line&gt;</span>
-<span class="lineno">11</span> <span class="nt">&lt;/svg&gt;</span>
-</code></pre></div>
+<span class="lineno">11</span> <span class="nt">&lt;/svg&gt;</span></code></pre></div>
 
 <p>先预定义了一个箭头形状的marker，然后画了一条线，并且将预定义的marker标到线条末端.</p>
 
@@ -107,7 +106,7 @@
 
 <p>如果需改path值，path显示范围为(0,-3)到(10,3)，有一半内容在marker显示区域外，我们看到的就是半个三角形。设置坐标时要知道marker与path是共用同一个坐标系，path坐标不是相对于marker，注意path要在marker的可视范围内  </p>
 
-<div class="highlight"><pre><code class="html"><span class="lineno"> 1</span> <span class="nt">&lt;svg&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;svg&gt;</span>
 <span class="lineno"> 2</span>     <span class="c">&lt;!-- 预定义marker--&gt;</span>
 <span class="lineno"> 3</span>     <span class="nt">&lt;defs&gt;</span>
 <span class="lineno"> 4</span>         <span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&quot;arrow&quot;</span> <span class="na">refX=</span><span class="s">&quot;0&quot;</span> <span class="na">refY=</span><span class="s">&quot;0&quot;</span> <span class="na">markerWidth=</span><span class="s">&quot;20&quot;</span> <span class="na">markerHeight=</span><span class="s">&quot;20&quot;</span> <span class="na">orient=</span><span class="s">&quot;auto&quot;</span><span class="nt">&gt;</span>
@@ -117,8 +116,7 @@
 <span class="lineno"> 8</span>     <span class="nt">&lt;/defs&gt;</span>
 <span class="lineno"> 9</span>     <span class="c">&lt;!-- 引用预定义的marker --&gt;</span>
 <span class="lineno">10</span>     <span class="nt">&lt;line</span> <span class="na">class=</span><span class="s">&quot;link&quot;</span> <span class="na">marker-end=</span><span class="s">&quot;url(#arrow)&quot;</span> <span class="na">x1=</span><span class="s">&quot;0&quot;</span> <span class="na">y1=</span><span class="s">&quot;0&quot;</span> <span class="na">x2=</span><span class="s">&quot;80&quot;</span> <span class="na">y2=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;&lt;/line&gt;</span>
-<span class="lineno">11</span> <span class="nt">&lt;/svg&gt;</span>
-</code></pre></div>
+<span class="lineno">11</span> <span class="nt">&lt;/svg&gt;</span></code></pre></div>
 
 <p>如下<br>
 <img src="http://miaoyin.qiniudn.com/2014-07-09-02.png" width="200" /></p>
@@ -133,7 +131,7 @@
 
 <p>比如上面只显示半个三角形，可以通过设置viewbox让它，在marker中完整显示.</p>
 
-<div class="highlight"><pre><code class="html"><span class="lineno"> 1</span> <span class="nt">&lt;svg&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;svg&gt;</span>
 <span class="lineno"> 2</span>     <span class="c">&lt;!-- 预定义marker--&gt;</span>
 <span class="lineno"> 3</span>     <span class="nt">&lt;defs&gt;</span>
 <span class="lineno"> 4</span>         <span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&quot;arrow&quot;</span> <span class="na">refX=</span><span class="s">&quot;0&quot;</span> <span class="na">refY=</span><span class="s">&quot;0&quot;</span> <span class="na">markerWidth=</span><span class="s">&quot;20&quot;</span> <span class="na">markerHeight=</span><span class="s">&quot;20&quot;</span> <span class="na">orient=</span><span class="s">&quot;auto&quot;</span> <span class="na">viewBox=</span><span class="s">&quot;0, -3, 10, 6&quot;</span> <span class="nt">&gt;</span>
@@ -143,8 +141,7 @@
 <span class="lineno"> 8</span>     <span class="nt">&lt;/defs&gt;</span>
 <span class="lineno"> 9</span>     <span class="c">&lt;!-- 引用预定义的marker --&gt;</span>
 <span class="lineno">10</span>     <span class="nt">&lt;line</span> <span class="na">class=</span><span class="s">&quot;link&quot;</span> <span class="na">marker-end=</span><span class="s">&quot;url(#arrow)&quot;</span> <span class="na">x1=</span><span class="s">&quot;0&quot;</span> <span class="na">y1=</span><span class="s">&quot;0&quot;</span> <span class="na">x2=</span><span class="s">&quot;80&quot;</span> <span class="na">y2=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;&lt;/line&gt;</span>
-<span class="lineno">11</span> <span class="nt">&lt;/svg&gt;</span>
-</code></pre></div>
+<span class="lineno">11</span> <span class="nt">&lt;/svg&gt;</span></code></pre></div>
 
 <p>上面viewBox控制了取景范围，正好将整个三角形取出来，再放入长20宽20的marker中，因为viewbox取到的景象长为10宽为6，小于marker大小，要想让三角形充满，则要放大景象，放大的比例长为20/10，宽为20/6.  </p>
 

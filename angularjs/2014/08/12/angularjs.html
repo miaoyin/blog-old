@@ -86,7 +86,7 @@
 
 <p>首先在angular.js文件，找到解析指令名的代码</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="k">switch</span><span class="p">(</span><span class="nx">nodeType</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">switch</span><span class="p">(</span><span class="nx">nodeType</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">case</span> <span class="mi">1</span><span class="o">:</span> <span class="cm">/* Element */</span>
     <span class="c1">// use the node name: &lt;directive&gt;</span>
     <span class="c1">//此处是解析标签形式的指令</span>
@@ -130,8 +130,7 @@
         <span class="nx">addDirective</span><span class="p">(</span><span class="nx">directives</span><span class="p">,</span> <span class="nx">nName</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="nx">maxPriority</span><span class="p">,</span> <span class="nx">ignoreDirective</span><span class="p">,</span> <span class="nx">attrStartName</span><span class="p">,</span>
                       <span class="nx">attrEndName</span><span class="p">);</span>
       <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></div>
+    <span class="p">}</span></code></pre></div>
 
 <p>上面一处是解析标签形式的指令名，调用了directiveNormalize(nodeName_(node).toLowerCase())<br>
 另一处是解析属性形式的指令名，调用了directiveNormalize(name.toLowerCase())<br>
@@ -140,7 +139,7 @@
 
 <p>继续看directiveNormalize()函数</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">PREFIX_REGEXP</span> <span class="o">=</span> <span class="sr">/^(x[\:\-_]|data[\:\-_])/i</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">PREFIX_REGEXP</span> <span class="o">=</span> <span class="sr">/^(x[\:\-_]|data[\:\-_])/i</span><span class="p">;</span>
 <span class="cm">/**</span>
 <span class="cm"> * Converts all accepted directives format into proper directive name.</span>
 <span class="cm"> * All of these will become &#39;myDirective&#39;:</span>
@@ -154,15 +153,14 @@
 <span class="cm"> */</span>
 <span class="kd">function</span> <span class="nx">directiveNormalize</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">camelCase</span><span class="p">(</span><span class="nx">name</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">PREFIX_REGEXP</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>它使用用了name.replace(PREFIX<em>REGEXP, &#39;&#39;)，它的作用是去掉x和data开始的前缀
 所以解析指令的 **第二步:去掉以x-和data-开头的前缀(例如 x- x: x</em> data- data: data_ 忽略大小写)**  </p>
 
 <p>再继续看camelCase()函数</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">SPECIAL_CHARS_REGEXP</span> <span class="o">=</span> <span class="sr">/([\:\-\_]+(.))/g</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">SPECIAL_CHARS_REGEXP</span> <span class="o">=</span> <span class="sr">/([\:\-\_]+(.))/g</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">MOZ_HACK_REGEXP</span> <span class="o">=</span> <span class="sr">/^moz([A-Z])/</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">jqLiteMinErr</span> <span class="o">=</span> <span class="nx">minErr</span><span class="p">(</span><span class="s1">&#39;jqLite&#39;</span><span class="p">);</span>
  
@@ -177,14 +175,13 @@
       <span class="k">return</span> <span class="nx">offset</span> <span class="o">?</span> <span class="nx">letter</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">:</span> <span class="nx">letter</span><span class="p">;</span>
     <span class="p">}).</span>
     <span class="nx">replace</span><span class="p">(</span><span class="nx">MOZ_HACK_REGEXP</span><span class="p">,</span> <span class="s1">&#39;Moz$1&#39;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>使用了两个replace替换字符，第二个replace不用管，重点看第一个replace，它是什么作用？</p>
 
 <p>把它拿出来看看</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">SPECIAL_CHARS_REGEXP</span> <span class="o">=</span> <span class="sr">/([\:\-\_]+(.))/g</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">SPECIAL_CHARS_REGEXP</span> <span class="o">=</span> <span class="sr">/([\:\-\_]+(.))/g</span><span class="p">;</span>
 <span class="kd">function</span> <span class="nx">camelCase</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">name</span><span class="p">.</span>
     <span class="nx">replace</span><span class="p">(</span><span class="nx">SPECIAL_CHARS_REGEXP</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">separator</span><span class="p">,</span> <span class="nx">letter</span><span class="p">,</span> <span class="nx">offset</span><span class="p">)</span> <span class="p">{</span>
@@ -215,8 +212,7 @@
 <span class="cm"> </span>
 <span class="cm">----mydirectiveworld</span>
 <span class="cm">mydirectiveworld</span>
-<span class="cm">*/</span>
-</code></pre></div>
+<span class="cm">*/</span></code></pre></div>
 
 <p>可以看到第一个replace作用是生成驼峰指令名
 所以解析指令的<strong>第三步：根据分割符(: - _)标记，将字符转换为驼峰形式</strong></p>
@@ -226,7 +222,7 @@ http://yongqing.is-programmer.com/posts/56305.html</p>
 
 <p>更多指令名与指令对应的示例</p>
 
-<div class="highlight"><pre><code class="text">以分割符&quot;-&quot;为例
+<div class="highlight"><pre><code class="language-text" data-lang="text">以分割符&quot;-&quot;为例
 mymenu --&gt; mymenu   正确
 mymenu --&gt; myMenu   错误
 mymenu --&gt; my-Menu  错误
@@ -241,8 +237,7 @@ MyMenu --&gt; mymenu   错误
  
 myProductsMenu --&gt; my-Products-Menu   正确
 myProductsMenu --&gt; myProductsMenu     错误
-myProductsMenu --&gt; my-ProductsMenu    错误
-</code></pre></div>
+myProductsMenu --&gt; my-ProductsMenu    错误</code></pre></div>
 
 <h2>总结</h2>
 

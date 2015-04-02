@@ -78,7 +78,7 @@
 <div class="col-md-10">
     <p>在运行jetty-maven-plugin出现错误</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>ERROR<span class="o">]</span> Failed to execute goal org.eclipse.jetty:jetty-maven-plugin:9.2.6.v20141205:run <span class="o">(</span>default-cli<span class="o">)</span> on project PKPlatform_web: Execution default-cli of goal org.eclipse.jetty:jetty-maven-plugin:9.2.6.v20141205:run failed: Unable to load the mojo <span class="s1">&#39;run&#39;</span> in the plugin <span class="s1">&#39;org.eclipse.jetty:jetty-maven-plugin:9.2.6.v20141205&#39;</span> due to an API incompatibility: org.codehaus.plexus.component.repository.exception.ComponentLookupException: org/eclipse/jetty/maven/plugin/JettyRunMojo : Unsupported major.minor version 51.0
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>ERROR<span class="o">]</span> Failed to execute goal org.eclipse.jetty:jetty-maven-plugin:9.2.6.v20141205:run <span class="o">(</span>default-cli<span class="o">)</span> on project PKPlatform_web: Execution default-cli of goal org.eclipse.jetty:jetty-maven-plugin:9.2.6.v20141205:run failed: Unable to load the mojo <span class="s1">&#39;run&#39;</span> in the plugin <span class="s1">&#39;org.eclipse.jetty:jetty-maven-plugin:9.2.6.v20141205&#39;</span> due to an API incompatibility: org.codehaus.plexus.component.repository.exception.ComponentLookupException: org/eclipse/jetty/maven/plugin/JettyRunMojo : Unsupported major.minor version 51.0
 <span class="o">[</span>ERROR<span class="o">]</span> -----------------------------------------------------
 <span class="o">[</span>ERROR<span class="o">]</span> <span class="nv">realm</span> <span class="o">=</span>    plugin&gt;org.eclipse.jetty:jetty-maven-plugin:9.2.6.v20141205
 <span class="o">[</span>ERROR<span class="o">]</span> <span class="nv">strategy</span> <span class="o">=</span> org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy
@@ -139,13 +139,11 @@
 <span class="o">[</span>ERROR<span class="o">]</span> Re-run Maven using the -X switch to <span class="nb">enable </span>full debug logging.
 <span class="o">[</span>ERROR<span class="o">]</span> 
 <span class="o">[</span>ERROR<span class="o">]</span> For more information about the errors and possible solutions, please <span class="nb">read </span>the following articles:
-<span class="o">[</span>ERROR<span class="o">]</span> <span class="o">[</span>Help 1<span class="o">]</span> http://cwiki.apache.org/confluence/display/MAVEN/PluginContainerException
-</code></pre></div>
+<span class="o">[</span>ERROR<span class="o">]</span> <span class="o">[</span>Help 1<span class="o">]</span> http://cwiki.apache.org/confluence/display/MAVEN/PluginContainerException</code></pre></div>
 
 <p>从上面发现</p>
 
-<div class="highlight"><pre><code class="bash">repository.exception.ComponentLookupException: org/eclipse/jetty/maven/plugin/JettyRunMojo : Unsupported major.minor version 51.0
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">repository.exception.ComponentLookupException: org/eclipse/jetty/maven/plugin/JettyRunMojo : Unsupported major.minor version 51.0</code></pre></div>
 
 <p>很明显是版本问题. 检查机器, jdk版本是1.6，改为1.后，重新运行，一切正常.</p>
 

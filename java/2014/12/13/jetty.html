@@ -78,14 +78,12 @@
 <div class="col-md-10">
     <p>在为maven项目配置了jetty-maven-plugin插件，以jetty:run方式运行之后，控制台出现</p>
 
-<div class="highlight"><pre><code class="bash">2014-12-13 10:30:58.531:WARN:oejsh.ContextHandler:Aliased resource: file:/D:/Workspaces/MyEclipse%2010/PKPlatform_bg/WebRoot/pkBg/js/pgManage.js~<span class="o">=</span>
-file:/D:/Workspaces/MyEclipse%2010/PKPlatform_bg/WebRoot/pkBg/js/pgManage.js
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">2014-12-13 10:30:58.531:WARN:oejsh.ContextHandler:Aliased resource: file:/D:/Workspaces/MyEclipse%2010/PKPlatform_bg/WebRoot/pkBg/js/pgManage.js~<span class="o">=</span>
+file:/D:/Workspaces/MyEclipse%2010/PKPlatform_bg/WebRoot/pkBg/js/pgManage.js</code></pre></div>
 
 <p>发现引用路径中，多了个斜杠，去掉就可以了</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//js/pgManage.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//js/pgManage.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">

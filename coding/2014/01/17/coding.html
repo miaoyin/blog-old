@@ -113,12 +113,11 @@
 
 <p>一个简单的python异常  </p>
 
-<div class="highlight"><pre><code class="bash">&gt;&gt;&gt; <span class="nv">a</span> <span class="o">=</span> <span class="o">{</span><span class="s2">&quot;a&quot;</span>: 1, <span class="s2">&quot;b&quot;</span>: 2<span class="o">}</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">&gt;&gt;&gt; <span class="nv">a</span> <span class="o">=</span> <span class="o">{</span><span class="s2">&quot;a&quot;</span>: 1, <span class="s2">&quot;b&quot;</span>: 2<span class="o">}</span>
 &gt;&gt;&gt; a.pop<span class="o">(</span>c<span class="o">)</span>
 Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
   File <span class="s2">&quot;&lt;stdin&gt;&quot;</span>, line 1, in &lt;module&gt;
-NameError: name <span class="s1">&#39;c&#39;</span> is not defined
-</code></pre></div>
+NameError: name <span class="s1">&#39;c&#39;</span> is not defined</code></pre></div>
 
 <p>对于它我有很多疑问:
 1. 为什么抛异常？返回特殊标记不行吗.

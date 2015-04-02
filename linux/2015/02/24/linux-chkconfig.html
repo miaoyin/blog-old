@@ -78,35 +78,30 @@
 <div class="col-md-10">
     <h3>新建脚本</h3>
 
-<div class="highlight"><pre><code class="bash">touch /etc/init.d/echo_msg
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">touch /etc/init.d/echo_msg</code></pre></div>
 
 <ul>
 <li>添加内容</li>
 </ul>
 
-<div class="highlight"><pre><code class="text">#!/bin/zsh
+<div class="highlight"><pre><code class="language-text" data-lang="text">#!/bin/zsh
 #chkconfig:2345 61 61
 #description:runing echo
-echo &quot;I am runing&quot;  &gt; /home/wyq/start.txt
-</code></pre></div>
+echo &quot;I am runing&quot;  &gt; /home/wyq/start.txt</code></pre></div>
 
 <p>前三行是chkconfig的格式，不可以省略，否则会出现&quot;服务echo_msg，chkconfig不支持&quot;. </p>
 
 <h3>赋予执行权限</h3>
 
-<div class="highlight"><pre><code class="bash">chmod a+x echo_msg
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">chmod a+x echo_msg</code></pre></div>
 
 <h3>加入chkconfig列表</h3>
 
-<div class="highlight"><pre><code class="bash">chkconfig --add echo_msg
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">chkconfig --add echo_msg</code></pre></div>
 
 <h3>设置开机启动</h3>
 
-<div class="highlight"><pre><code class="bash">chkconfig echo_msg on
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">chkconfig echo_msg on</code></pre></div>
 
 <p>重启系统之后, 在/home/wyq目录下发现start.txt文件，表示启动成功.</p>
 

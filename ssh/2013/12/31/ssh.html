@@ -79,16 +79,14 @@
     <p>经常使用ssh远程登录，每次都敲一长串字符。重复多了，有砸键盘的冲动。后来发现可用别名代替。<br>
 在~/.ssh/config 中加入以下内容  </p>
 
-<div class="highlight"><pre><code class="text">Host mt98   //快捷名
+<div class="highlight"><pre><code class="language-text" data-lang="text">Host mt98   //快捷名
 HostName 135.32.9.98 //主机名
-User monitor  //用户名
-</code></pre></div>
+User monitor  //用户名</code></pre></div>
 
 <p>然后可用ssh mt98登陆<br>
 运行时出现错误  </p>
 
-<div class="highlight"><pre><code class="text">ssh: Could not resolve hostname mt98: Name or service not known
-</code></pre></div>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ssh: Could not resolve hostname mt98: Name or service not known</code></pre></div>
 
 <p>config文件需要改成和known_hosts的所有者一致.</p>
 

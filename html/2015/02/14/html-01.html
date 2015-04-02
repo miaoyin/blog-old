@@ -80,7 +80,7 @@
 
 <p>点击button触发click事件，click函数发送ajax请求获取数据，成功之后打开新窗口. 结果发现浏览器拦截了新窗口.</p>
 
-<div class="highlight"><pre><code class="html">$(&quot;#btn&quot;).click(function(e){
+<div class="highlight"><pre><code class="language-html" data-lang="html">$(&quot;#btn&quot;).click(function(e){
     $.getJSON(&quot;/data.json&quot;, function(rp){
         window.open(&quot;http://www.baidu.com&quot;);
         /*
@@ -95,15 +95,14 @@
     });
 });
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;html&gt;</span></code></pre></div>
 
 <ul>
 <li>示例二<br>
 用jquery.pubsub.js发布/订阅消息新开窗口. 不会被阻止</li>
 </ul>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/jquery.pubsub.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/jquery.pubsub.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 $(function(){
     $(&quot;#btn&quot;).click(function(e){
         $.publish(&quot;msg&quot;);
@@ -111,21 +110,19 @@ $(function(){
     $.subscribe(&quot;msg&quot;, function(param){
         window.open(&quot;http://www.baidu.com&quot;);
     })
-})
-</code></pre></div>
+})</code></pre></div>
 
 <ul>
 <li>示例三<br>
 将打开行为放在click()里，发现浏览器没有组织新窗口</li>
 </ul>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/jquery.pubsub.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/jquery.pubsub.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 $(function(){
     $(&quot;#btn&quot;).click(function(e){
         window.open(&quot;http://www.baidu.com&quot;);
     });
-})
-</code></pre></div>
+})</code></pre></div>
 
 <p><b>用户行为浏览器不会阻止，js调用触发的行为浏览器会阻止.</b></p>
 

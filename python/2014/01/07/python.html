@@ -78,21 +78,19 @@
 <div class="col-md-10">
     <p>要求计算上月，并且返回格式为XX的</p>
 
-<div class="highlight"><pre><code class="python"><span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 <span class="n">last</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">now</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">last</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%m&#39;</span><span class="p">)</span>
-</code></pre></div>
+<span class="k">print</span> <span class="n">last</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%m&#39;</span><span class="p">)</span></code></pre></div>
 
 <p>计算下个月</p>
 
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">calendar</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">calendar</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
  
 <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 <span class="n">max_days</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="n">monthrange</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
 <span class="nb">next</span> <span class="o">=</span> <span class="n">now</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">max_days</span> <span class="o">-</span> <span class="n">now</span><span class="o">.</span><span class="n">day</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="k">print</span> <span class="nb">next</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%m&#39;</span><span class="p">)</span>
-</code></pre></div>
+<span class="k">print</span> <span class="nb">next</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%m&#39;</span><span class="p">)</span></code></pre></div>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">

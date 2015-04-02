@@ -79,27 +79,24 @@
     <p>有如下测试代码
 test.py</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="c">#!/usr/bin/python</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="c">#!/usr/bin/python</span>
 <span class="lineno">2</span>  
 <span class="lineno">3</span> <span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
 <span class="lineno">4</span>     <span class="n">start_response</span><span class="p">(</span><span class="s">&#39;200 OK&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;Content_Type&#39;</span><span class="p">,</span> <span class="s">&#39;text/html&#39;</span><span class="p">)])</span>
-<span class="lineno">5</span>     <span class="k">return</span> <span class="s">&quot;Congraduation!!! uWSGI Testing OK!!!&quot;</span>
-</code></pre></div>
+<span class="lineno">5</span>     <span class="k">return</span> <span class="s">&quot;Congraduation!!! uWSGI Testing OK!!!&quot;</span></code></pre></div>
 
 <ul>
 <li>以uwsgi方式启动<br></li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">uwsgi -s :8080 --wsgi-file test.py -M -p 20
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">uwsgi -s :8080 --wsgi-file test.py -M -p 20</code></pre></div>
 
 <ul>
 <li>访问<br>
 在浏览器输入http://0.0.0.0:8080/ 浏览器提示&quot;未收到数据&quot;，后台出现错误提示<br></li>
 </ul>
 
-<div class="highlight"><pre><code class="bash">invalid request block size: 21573 <span class="o">(</span>max 4096<span class="o">)</span>...skip
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">invalid request block size: <span class="m">21573</span> <span class="o">(</span>max 4096<span class="o">)</span>...skip</code></pre></div>
 
 <ul>
 <li><p>错误原因<br>
@@ -110,14 +107,12 @@ usgi参数-s表示以socket方式提供通信端口，默认的协议是tcp.<br>
 
 <p>** 直接提供http服务</p>
 
-<div class="highlight"><pre><code class="bash">uwsgi --http :8080 --wsgi-file test.py -M -p 20
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">uwsgi --http :8080 --wsgi-file test.py -M -p 20</code></pre></div>
 
 <p>** ngix+uwsgi
 通过nginx访问uwsgi，uwsgi则可使用以下方式启动</p>
 
-<div class="highlight"><pre><code class="bash">uwsgi -s :8080 --wsgi-file test.py -M -p 20
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">uwsgi -s :8080 --wsgi-file test.py -M -p 20</code></pre></div>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">

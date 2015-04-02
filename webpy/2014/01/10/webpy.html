@@ -81,7 +81,7 @@
 
 <p>下面是个小程序，目的就是访问数据库，然后关闭连接。</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno"> 1</span> <span class="kn">import</span> <span class="nn">web</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="kn">import</span> <span class="nn">web</span>
 <span class="lineno"> 2</span>  
 <span class="lineno"> 3</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 <span class="lineno"> 4</span>     <span class="n">db</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">database</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">5432</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">dbn</span><span class="o">=</span><span class="s">&#39;postgres&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="s">&#39;tax&#39;</span><span class="p">,</span>
@@ -91,14 +91,13 @@
 <span class="lineno"> 8</span>     <span class="n">db</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="lineno"> 9</span>  
 <span class="lineno">10</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="lineno">11</span>     <span class="n">main</span><span class="p">()</span>
-</code></pre></div>
+<span class="lineno">11</span>     <span class="n">main</span><span class="p">()</span></code></pre></div>
 
 <p>在正常情况下，上面程序表现很正常。不会有任何问题.</p>
 
 <p>如果变成周期程序，并且安装了DBUtils模块</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno"> 1</span> <span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="kn">import</span> <span class="nn">time</span>
 <span class="lineno"> 2</span> <span class="kn">import</span> <span class="nn">web</span>
 <span class="lineno"> 3</span> <span class="kn">import</span> <span class="nn">psycopg2</span>
 <span class="lineno"> 4</span>  
@@ -112,8 +111,7 @@
 <span class="lineno">12</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
 <span class="lineno">13</span>     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
 <span class="lineno">14</span>         <span class="n">main</span><span class="p">()</span>
-<span class="lineno">15</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
+<span class="lineno">15</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
 
 <p>输出的count值不断增加，最终将连接数占满。</p>
 
@@ -126,7 +124,7 @@
 <p>第二个问题: 在有DBUtils时close为什么不会减少连接数？
 写了段代码，来看看close是怎么回事</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno"> 1</span> <span class="kn">import</span> <span class="nn">psycopg2</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="kn">import</span> <span class="nn">psycopg2</span>
 <span class="lineno"> 2</span> <span class="kn">from</span> <span class="nn">DBUtils</span> <span class="kn">import</span> <span class="n">PooledDB</span>
 <span class="lineno"> 3</span>  
 <span class="lineno"> 4</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -147,8 +145,7 @@
 <span class="lineno">19</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
 <span class="lineno">20</span>     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
 <span class="lineno">21</span>         <span class="n">main</span><span class="p">()</span>
-<span class="lineno">22</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
+<span class="lineno">22</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
 
 <p>发现连接数始终不是变，单个连接的close，不会影响到这个连接池。</p>
 
@@ -163,7 +160,7 @@
 
 <p>顺着这个思路阅读web源码，发现web.ctx是个TreadedDict类型</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno"> 1</span> <span class="k">class</span> <span class="nc">ThreadedDict</span><span class="p">(</span><span class="n">threadlocal</span><span class="p">):</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="k">class</span> <span class="nc">ThreadedDict</span><span class="p">(</span><span class="n">threadlocal</span><span class="p">):</span>
 <span class="lineno"> 2</span>     <span class="sd">&quot;&quot;&quot;</span>
 <span class="lineno"> 3</span> <span class="sd">    Thread local storage.</span>
 <span class="lineno"> 4</span> <span class="sd"> </span>
@@ -191,8 +188,7 @@
 <span class="lineno">26</span>  
 <span class="lineno">27</span>     <span class="k">def</span> <span class="nf">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="lineno">28</span>         <span class="k">return</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="lineno">29</span>     <span class="o">....</span>
-</code></pre></div>
+<span class="lineno">29</span>     <span class="o">....</span></code></pre></div>
 
 <p>原来它有个静态属性ThreadedDict._instances保存每个实例，而每个实例中又保存web.database产生的PooledDB对象.<br>
 所以pool一直不释放。  </p>
@@ -203,9 +199,8 @@
 <p>webpy如何解决这个问题？
 使用polling参数，禁止连接池</p>
 
-<div class="highlight"><pre><code class="python"><span class="n">db</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">database</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">5432</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">dbn</span><span class="o">=</span><span class="s">&#39;postgres&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="s">&#39;tax&#39;</span><span class="p">,</span>
-                  <span class="n">user</span><span class="o">=</span><span class="s">&#39;postgres&#39;</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="s">&#39;postgres&#39;</span><span class="p">,</span> <span class="n">pooling</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">db</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">database</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">5432</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">dbn</span><span class="o">=</span><span class="s">&#39;postgres&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="s">&#39;tax&#39;</span><span class="p">,</span>
+                  <span class="n">user</span><span class="o">=</span><span class="s">&#39;postgres&#39;</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="s">&#39;postgres&#39;</span><span class="p">,</span> <span class="n">pooling</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></code></pre></div>
 
 <p>这上面得出的结论对oracle和其它类型的数据库同样有效.</p>
 

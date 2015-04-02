@@ -82,21 +82,19 @@
 
 <p>ssh登陆系统，未输入密码就提示认证失败  </p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>ssh wyq@192.168.1.107
-Received disconnect from 192.168.1.107: 2: Too many authentication failures <span class="k">for </span>wyq
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>ssh wyq@192.168.1.107
+Received disconnect from 192.168.1.107: 2: Too many authentication failures <span class="k">for</span> wyq</code></pre></div>
 
 <p>查看/etc/sshd/sshd_config尝试认证次数  </p>
 
-<div class="highlight"><pre><code class="bash">MaxAuthTries 1
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">MaxAuthTries 1</code></pre></div>
 
 <p>最大认证次数为1，为什么还没有输入密码就已经提示 Too many authentication failures ？</p>
 
 <p>开启ssh的debug模式</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>ssh -v wyq@192.168.1.107
-OpenSSH_6.4, OpenSSL 1.0.1e-fips 11 Feb 2013
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>ssh -v wyq@192.168.1.107
+OpenSSH_6.4, OpenSSL 1.0.1e-fips <span class="m">11</span> Feb 2013
 debug1: Reading configuration data /home/wyq/.ssh/config
 debug1: Reading configuration data /etc/ssh/ssh_config
 debug1: /etc/ssh/ssh_config line 51: Applying options <span class="k">for</span> *
@@ -108,7 +106,7 @@ debug1: identity file /home/wyq/.ssh/id_dsa <span class="nb">type</span> -1
 debug1: identity file /home/wyq/.ssh/id_dsa-cert <span class="nb">type</span> -1
 debug1: identity file /home/wyq/.ssh/id_ecdsa <span class="nb">type</span> -1
 debug1: identity file /home/wyq/.ssh/id_ecdsa-cert <span class="nb">type</span> -1
-debug1: Enabling compatibility mode <span class="k">for </span>protocol 2.0
+debug1: Enabling compatibility mode <span class="k">for</span> protocol 2.0
 debug1: Local version string SSH-2.0-OpenSSH_6.4
 debug1: Remote protocol version 2.0, remote software version OpenSSH_6.4
 debug1: match: OpenSSH_6.4 pat OpenSSH*
@@ -133,16 +131,16 @@ debug1: Next authentication method: gssapi-keyex
 debug1: No valid Key exchange context
 debug1: Next authentication method: gssapi-with-mic
 debug1: Unspecified GSS failure.  Minor code may provide more information
-Cannot determine realm <span class="k">for </span>numeric host address
+Cannot determine realm <span class="k">for</span> numeric host address
  
 debug1: Unspecified GSS failure.  Minor code may provide more information
-Cannot determine realm <span class="k">for </span>numeric host address
+Cannot determine realm <span class="k">for</span> numeric host address
  
 debug1: Unspecified GSS failure.  Minor code may provide more information
  
  
 debug1: Unspecified GSS failure.  Minor code may provide more information
-Cannot determine realm <span class="k">for </span>numeric host address
+Cannot determine realm <span class="k">for</span> numeric host address
  
 debug1: Next authentication method: publickey
 debug1: Offering RSA public key: /home/wyq/.ssh/id_rsa
@@ -150,16 +148,14 @@ debug1: Authentications that can <span class="k">continue</span>: publickey,gssa
 debug1: Trying private key: /home/wyq/.ssh/id_dsa
 debug1: Trying private key: /home/wyq/.ssh/id_ecdsa
 debug1: Next authentication method: password
-wyq@192.168.1.107<span class="err">&#39;</span>s password: 
-</code></pre></div>
+wyq@192.168.1.107<span class="err">&#39;</span>s password:</code></pre></div>
 
 <p>发现在提示输入密码前它已经进行了几次验证</p>
 
-<div class="highlight"><pre><code class="bash">debug1: Next authentication method: gssapi-keyex
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">debug1: Next authentication method: gssapi-keyex
 debug1: Next authentication method: gssapi-with-mic
 debug1: Next authentication method: publickey
-debug1: Next authentication method: password
-</code></pre></div>
+debug1: Next authentication method: password</code></pre></div>
 
 <p>原来在密码认证之前，ssh已经进行了几种认证.<br>
 应该是他们导致的，具体原因就不是很清楚.  </p>

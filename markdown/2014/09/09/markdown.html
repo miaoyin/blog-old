@@ -82,7 +82,7 @@
 
 <h4>语法</h4>
 
-<div class="highlight"><pre><code class="text">Setext方式
+<div class="highlight"><pre><code class="language-text" data-lang="text">Setext方式
 标题1
 =================
 
@@ -92,8 +92,7 @@
 Atx方式
 # 标题1
 ## 标题2
-###### 标题6
-</code></pre></div>
+###### 标题6</code></pre></div>
 
 <h4>效果</h4>
 
@@ -125,11 +124,10 @@ Atx方式
 
 <h4>语法</h4>
 
-<div class="highlight"><pre><code class="text">&gt; 这是一个引用，
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt; 这是一个引用，
 &gt; 这里木有换行，   
 &gt; 在这里换行了。
-&gt; &gt; 内部嵌套
-</code></pre></div>
+&gt; &gt; 内部嵌套</code></pre></div>
 
 <h4>效果</h4>
 
@@ -151,7 +149,7 @@ Atx方式
 
 <h4>语法</h4>
 
-<div class="highlight"><pre><code class="text">* Item 1
+<div class="highlight"><pre><code class="language-text" data-lang="text">* Item 1
 * Item 2
 * Item 3
 
@@ -161,8 +159,7 @@ Atx方式
 
 - Item 1
 - Item 2
-- Item 3
-</code></pre></div>
+- Item 3</code></pre></div>
 
 <h4>效果</h4>
 
@@ -186,10 +183,9 @@ Atx方式
 
 <h4>语法</h4>
 
-<div class="highlight"><pre><code class="text">1. Item 1
+<div class="highlight"><pre><code class="language-text" data-lang="text">1. Item 1
 2. Item 2
-3. Item 3
-</code></pre></div>
+3. Item 3</code></pre></div>
 
 <h4>效果</h4>
 
@@ -208,16 +204,15 @@ Atx方式
 
 <h4>语法</h4>
 
-<div class="highlight"><pre><code class="text">Bash中可以使用echo来进行输出。
+<div class="highlight"><pre><code class="language-text" data-lang="text">Bash中可以使用echo来进行输出。
 
     $ echo &#39;Something&#39;
-    $ echo -e &#39;\tSomething\n&#39;
-</code></pre></div>
+    $ echo -e &#39;\tSomething\n&#39;</code></pre></div>
 
 <h4>效果</h4>
 
 <p>Bash中可以使用echo来进行输出。</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ echo &#39;Something&#39;
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ echo &#39;Something&#39;
 $ echo -e &#39;\tSomething\n&#39;
 </code></pre></div>
 <hr>
@@ -228,11 +223,10 @@ $ echo -e &#39;\tSomething\n&#39;
 
 <h4>语法</h4>
 
-<div class="highlight"><pre><code class="text">单星号 = *斜体*
+<div class="highlight"><pre><code class="language-text" data-lang="text">单星号 = *斜体*
 单下划线 = _斜体_
 双星号 = **加粗**
-双下划线 = __加粗__
-</code></pre></div>
+双下划线 = __加粗__</code></pre></div>
 
 <h4>效果</h4>
 
@@ -253,30 +247,28 @@ $ echo -e &#39;\tSomething\n&#39;
 Reference：一般应用于多个不同位置使用相同链接。通常分为两个部分，调用部分为<a href="http://equation85.github.com">链接文本</a>；定义部分可以出现在文本中的其他位置，格式为<a href="http://equation85.github.com">ref</a>: http://some/link/address (可选的标题)。
 注：ref中不区分大小写。</p>
 
-<div class="highlight"><pre><code class="text">这是一个Inline[示例](http://equation85.github.com &quot;可选的title&quot;)。
+<div class="highlight"><pre><code class="language-text" data-lang="text">这是一个Inline[示例](http://equation85.github.com &quot;可选的title&quot;)。
 这是一个Reference[示例][ref]。
 
-</code></pre></div>
 
-<h4>效果</h4>
 
-<p>这是一个Inline<a href="http://equation85.github.com" title="可选的title">示例</a>。
-这是一个Reference<a href="http://equation85.github.com">示例</a>。</p>
+#### 效果
+这是一个Inline[示例](http://equation85.github.com "可选的title")。
+这是一个Reference[示例][ref]。
 
-<hr>
 
-<h1><strong>图片</strong></h1>
+---
 
-<p>图片的使用方法基本上和链接类似，只是在中括号前加叹号。
-注：Markdown不能设置图片大小，如果必须设置则应使用HTML标记<img>。</p>
+# **图片**
+图片的使用方法基本上和链接类似，只是在中括号前加叹号。
+注：Markdown不能设置图片大小，如果必须设置则应使用HTML标记<img>。
 
-<h4>语法</h4>
+#### 语法
 
-<div class="highlight"><pre><code class="text">Inline示例：![替代文本](/assets/images/jian.jpg &quot;可选的title&quot;)
+<div class="highlight"><pre><code class="language-text" data-lang="text">Inline示例：![替代文本](/assets/images/jian.jpg &quot;可选的title&quot;)
 Reference示例：![替代文本][pic]
 [pic]: /assets/images/ship.jpg &quot;可选的title&quot;
-HTML示例：&lt;img src=&quot;/assets/images/jian.jpg&quot; alt=&quot;替代文本&quot; title=&quot;标题文本&quot; width=&quot;200&quot; /&gt;
-</code></pre></div>
+HTML示例：&lt;img src=&quot;/assets/images/jian.jpg&quot; alt=&quot;替代文本&quot; title=&quot;标题文本&quot; width=&quot;200&quot; /&gt;</code></pre></div>
 
 <hr>
 
@@ -291,7 +283,7 @@ HTML示例：&lt;img src=&quot;/assets/images/jian.jpg&quot; alt=&quot;替代文
 <p><strong>转义字符</strong>
 Markdown中的转义字符为\，可以转义的有：</p>
 
-<div class="highlight"><pre><code class="text">\\ 反斜杠
+<div class="highlight"><pre><code class="language-text" data-lang="text">\\ 反斜杠
 \` 反引号
 \* 星号
 \_ 下划线
@@ -302,8 +294,7 @@ Markdown中的转义字符为\，可以转义的有：</p>
 \+ 加号
 \- 减号
 \. 英文句号
-\! 感叹号
-</code></pre></div>
+\! 感叹号</code></pre></div>
   
 
 <hr>

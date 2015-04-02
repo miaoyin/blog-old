@@ -78,13 +78,12 @@
 <div class="col-md-10">
     <p>使用错误的默认值，会掩盖错误，又造成新的错误，最后将错误传入内部。</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="c"># 前台传入三个参数，三个参数都是必需的.</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="c"># 前台传入三个参数，三个参数都是必需的.</span>
 <span class="lineno">2</span> <span class="n">identifier</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">input</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;identifier&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>   <span class="c"># webpy框架</span>
 <span class="lineno">3</span> <span class="n">year</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">input</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
 <span class="lineno">4</span> <span class="n">taxpayer_name</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">input</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;taxpayer_name&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
 <span class="lineno">5</span> <span class="c"># 传输如None参数，会导致接口出现错误</span>
-<span class="lineno">6</span> <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">inquiryTaxOwe</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">taxpayer_name</span><span class="p">)</span>
-</code></pre></div>
+<span class="lineno">6</span> <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">inquiryTaxOwe</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">taxpayer_name</span><span class="p">)</span></code></pre></div>
 
 <p>前台传入三个参数时，表现正常。
 上面使用默认参数是demo阶段时为了方面。实现时会出现下面的情况.<br>
@@ -92,11 +91,10 @@
 
 <p>换一种方式</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="n">identifier</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">input</span><span class="p">()</span><span class="o">.</span><span class="n">identifier</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="n">identifier</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">input</span><span class="p">()</span><span class="o">.</span><span class="n">identifier</span>
 <span class="lineno">2</span> <span class="n">year</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">input</span><span class="p">()</span><span class="o">.</span><span class="n">year</span>
 <span class="lineno">3</span> <span class="n">taxpayer_name</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">input</span><span class="p">()</span><span class="o">.</span><span class="n">taxpayer_name</span>
-<span class="lineno">4</span> <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">inquirytaxOwe</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">taxpayer_name</span><span class="p">)</span>
-</code></pre></div>
+<span class="lineno">4</span> <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">inquirytaxOwe</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">taxpayer_name</span><span class="p">)</span></code></pre></div>
 
 <p>在不传入参数时，会及早发现，不会再有上面的郁闷了.</p>
 

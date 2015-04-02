@@ -78,23 +78,21 @@
 <div class="col-md-10">
     <p>一般用ping来测试网络是否连通. 在用proxychains代理时，发现ping用不了</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="p">[</span><span class="n">wyq</span><span class="nd">@localhost</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">proxychains</span> <span class="n">ping</span> <span class="mf">135.32</span><span class="o">.</span><span class="mf">9.98</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="p">[</span><span class="n">wyq</span><span class="nd">@localhost</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">proxychains</span> <span class="n">ping</span> <span class="mf">135.32</span><span class="o">.</span><span class="mf">9.98</span>
 <span class="lineno">2</span> <span class="n">ProxyChains</span><span class="o">-</span><span class="mf">3.1</span> <span class="p">(</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">proxychains</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">net</span><span class="p">)</span>
 <span class="lineno">3</span> <span class="n">ERROR</span><span class="p">:</span> <span class="n">ld</span><span class="o">.</span><span class="n">so</span><span class="p">:</span> <span class="nb">object</span> <span class="s">&#39;libproxychains.so.3&#39;</span> <span class="kn">from</span> <span class="nn">LD_PRELOAD</span> <span class="nn">cannot</span> <span class="nn">be</span> <span class="nn">preloaded</span><span class="p">:</span> <span class="n">ignored</span><span class="o">.</span>
-<span class="lineno">4</span> <span class="n">PING</span> <span class="mf">135.32</span><span class="o">.</span><span class="mf">9.98</span> <span class="p">(</span><span class="mf">135.32</span><span class="o">.</span><span class="mf">9.98</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
-</code></pre></div>
+<span class="lineno">4</span> <span class="n">PING</span> <span class="mf">135.32</span><span class="o">.</span><span class="mf">9.98</span> <span class="p">(</span><span class="mf">135.32</span><span class="o">.</span><span class="mf">9.98</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span></code></pre></div>
 
 <p>proxychains支持的是socks，http, https协议.它们以tcp或者udp协议为基础. 所以proxychains只支持使用tcp或udp协议的程序. ping用的是ICMP协议，不以tcp或udp为基础，所以用不了。</p>
 
 <p>有其它办法吗？
 以tcp或udp为基础，测试网络是否可用的工具，比较好用的有wget</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="p">[</span><span class="n">wyq</span><span class="nd">@localhost</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">proxychains</span> <span class="n">wget</span> <span class="mf">135.32</span><span class="o">.</span><span class="mf">9.98</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="p">[</span><span class="n">wyq</span><span class="nd">@localhost</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">proxychains</span> <span class="n">wget</span> <span class="mf">135.32</span><span class="o">.</span><span class="mf">9.98</span>
 <span class="lineno">2</span> <span class="n">ProxyChains</span><span class="o">-</span><span class="mf">3.1</span> <span class="p">(</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">proxychains</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">net</span><span class="p">)</span>
 <span class="lineno">3</span> <span class="o">--</span><span class="mi">2014</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">16</span> <span class="mi">09</span><span class="p">:</span><span class="mi">44</span><span class="p">:</span><span class="mi">57</span><span class="o">--</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">135.32</span><span class="o">.</span><span class="mf">9.98</span><span class="o">/</span>
 <span class="lineno">4</span> <span class="err">正在连接</span> <span class="mf">135.32</span><span class="o">.</span><span class="mf">9.98</span><span class="p">:</span><span class="mf">80.</span><span class="o">..</span> <span class="o">|</span><span class="n">S</span><span class="o">-</span><span class="n">chain</span><span class="o">|-&lt;&gt;-</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.115</span><span class="p">:</span><span class="mi">1080</span><span class="o">-&lt;&gt;&lt;&gt;-</span><span class="mf">135.32</span><span class="o">.</span><span class="mf">9.98</span><span class="p">:</span><span class="mi">80</span><span class="o">-&lt;--</span><span class="n">denied</span>
-<span class="lineno">5</span> <span class="err">失败：拒绝连接。</span>
-</code></pre></div>
+<span class="lineno">5</span> <span class="err">失败：拒绝连接。</span></code></pre></div>
 
 <p>虽然提示拒绝连接，但是输出信息，已能说明网络连通了.</p>
 

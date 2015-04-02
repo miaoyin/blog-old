@@ -78,7 +78,7 @@
 <div class="col-md-10">
     <p>在win8系统下运行 python -m SimpleHTTPServer 出现Traceback (most recent call last):</p>
 
-<div class="highlight"><pre><code class="bash">  File <span class="s2">&quot;D:\Python27\lib\runpy.py&quot;</span>, line 162, in _run_module_as_main
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">File <span class="s2">&quot;D:\Python27\lib\runpy.py&quot;</span>, line 162, in _run_module_as_main
     <span class="s2">&quot;__main__&quot;</span>, fname, loader, pkg_name<span class="o">)</span>
   File <span class="s2">&quot;D:\Python27\lib\runpy.py&quot;</span>, line 72, in _run_code
     <span class="nb">exec </span>code in run_globals
@@ -90,19 +90,17 @@ ler
   File <span class="s2">&quot;D:\Python27\lib\mimetypes.py&quot;</span>, line 358, in init
     db.read_windows_registry<span class="o">()</span>
   File <span class="s2">&quot;D:\Python27\lib\mimetypes.py&quot;</span>, line 258, in read_windows_registry
-    <span class="k">for </span>subkeyname in enum_types<span class="o">(</span>hkcr<span class="o">)</span>:
+    <span class="k">for</span> subkeyname in enum_types<span class="o">(</span>hkcr<span class="o">)</span>:
   File <span class="s2">&quot;D:\Python27\lib\mimetypes.py&quot;</span>, line 249, in enum_types
     <span class="nv">ctype</span> <span class="o">=</span> ctype.encode<span class="o">(</span>default_encoding<span class="o">)</span> <span class="c"># omit in 3.x!</span>
 UnicodeDecodeError: <span class="s1">&#39;ascii&#39;</span> codec can<span class="err">&#39;</span>t decode byte 0xb0 in position 1: ordinal
-not in range<span class="o">(</span>128<span class="o">)</span>
-</code></pre></div>
+not in range<span class="o">(</span>128<span class="o">)</span></code></pre></div>
 
 <p>在import SimpleHTTPServer时，同样出现上面的错误.<br>
 在import sys后面加上下面语句  </p>
 
-<div class="highlight"><pre><code class="python"><span class="nb">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s">&#39;gbk&#39;</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="nb">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s">&#39;gbk&#39;</span><span class="p">)</span></code></pre></div>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">

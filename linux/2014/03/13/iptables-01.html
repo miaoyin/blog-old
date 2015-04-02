@@ -87,7 +87,7 @@ firewall能够允许哪些服务可用，那些端口可用.... 属于更高一�
 
 <p>默认的iptables配置</p>
 
-<div class="highlight"><pre><code class="bash"><span class="lineno">1</span> <span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>sudo iptables -L -n
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> <span class="o">[</span>wyq@localhost ~<span class="o">]</span><span class="nv">$ </span>sudo iptables -L -n
 <span class="lineno">2</span> Chain INPUT <span class="o">(</span>policy ACCEPT<span class="o">)</span>
 <span class="lineno">3</span> target     prot opt <span class="nb">source               </span>destination         
 <span class="lineno">4</span>  
@@ -95,13 +95,12 @@ firewall能够允许哪些服务可用，那些端口可用.... 属于更高一�
 <span class="lineno">6</span> target     prot opt <span class="nb">source               </span>destination         
 <span class="lineno">7</span>  
 <span class="lineno">8</span> Chain OUTPUT <span class="o">(</span>policy ACCEPT<span class="o">)</span>
-<span class="lineno">9</span> target     prot opt <span class="nb">source               </span>destination
-</code></pre></div>
+<span class="lineno">9</span> target     prot opt <span class="nb">source               </span>destination</code></pre></div>
 
 <p>firewall启动后，查看iptables的配置<br>
 可以看到，firewall修改了iptables中链路    </p>
 
-<div class="highlight"><pre><code class="bash"><span class="lineno"> 1</span> <span class="o">[</span>wyq@localhost sysconfig<span class="o">]</span><span class="nv">$ </span>sudo iptables -L -n
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1</span> <span class="o">[</span>wyq@localhost sysconfig<span class="o">]</span><span class="nv">$ </span>sudo iptables -L -n
 <span class="lineno"> 2</span> Chain INPUT <span class="o">(</span>policy ACCEPT<span class="o">)</span>
 <span class="lineno"> 3</span> target     prot opt <span class="nb">source               </span>destination         
 <span class="lineno"> 4</span> ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
@@ -116,9 +115,7 @@ firewall能够允许哪些服务可用，那些端口可用.... 属于更高一�
 <span class="lineno">13</span> target     prot opt <span class="nb">source               </span>destination         
 <span class="lineno">14</span> ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
 <span class="lineno">15</span>  
-<span class="lineno">16</span> ...........
-<span class="lineno">17</span>  
-</code></pre></div>
+<span class="lineno">16</span> ...........</code></pre></div>
 
 <p>firewall可以提供高层的防火墙。  </p>
 

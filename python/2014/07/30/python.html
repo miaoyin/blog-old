@@ -80,18 +80,16 @@
 
 <p>fd, name = tempfile.mkstemp 创建临时文件，并且将文件打开  </p>
 
-<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">tempfile</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">tempfile</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkstemp</span><span class="p">()</span>
-<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;/tmp/tmpkgWSR1&#39;</span><span class="p">)</span>
-</code></pre></div>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;/tmp/tmpkgWSR1&#39;</span><span class="p">)</span></code></pre></div>
 
 <p>查看/tmp目录，看到已经生成真实的文件  </p>
 
 <p>lsof查询打开的临时文件  </p>
 
-<div class="highlight"><pre><code class="python"><span class="p">[</span><span class="n">wyq</span><span class="nd">@localhost</span> <span class="n">tmp</span><span class="p">]</span><span class="err">$</span> <span class="n">lsof</span><span class="o">|</span><span class="n">grep</span> <span class="n">tmp</span><span class="o">|</span><span class="n">grep</span> <span class="n">python</span>
-<span class="n">python</span>    <span class="mi">8095</span>           <span class="n">wyq</span>    <span class="mi">3</span><span class="n">u</span>      <span class="n">REG</span>               <span class="mi">0</span><span class="p">,</span><span class="mi">33</span>         <span class="mi">0</span>     <span class="mi">254593</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">tmpkgWSR1</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="p">[</span><span class="n">wyq</span><span class="nd">@localhost</span> <span class="n">tmp</span><span class="p">]</span><span class="err">$</span> <span class="n">lsof</span><span class="o">|</span><span class="n">grep</span> <span class="n">tmp</span><span class="o">|</span><span class="n">grep</span> <span class="n">python</span>
+<span class="n">python</span>    <span class="mi">8095</span>           <span class="n">wyq</span>    <span class="mi">3</span><span class="n">u</span>      <span class="n">REG</span>               <span class="mi">0</span><span class="p">,</span><span class="mi">33</span>         <span class="mi">0</span>     <span class="mi">254593</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">tmpkgWSR1</span></code></pre></div>
 
 <p>发现mkstemp不仅创建文件，而且将文件打开. 使用mkstemp很容易忘了这点，最终造成<strong>OSError: [Errno 24] Too many open files错误</strong>.<br>
 mkstemp返回的是文件描述和文件路径，并不常用，常用的是下面两个.  </p>
@@ -100,10 +98,9 @@ mkstemp返回的是文件描述和文件路径，并不常用，常用的是下�
 
 <p>name = tempfile.mktemp 返回<strong>一个临时文件的路径，但不创建该临时文件</strong></p>
 
-<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">tempfile</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">tempfile</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span>
-<span class="s">&#39;/tmp/tmpPVidBM&#39;</span>
-</code></pre></div>
+<span class="s">&#39;/tmp/tmpPVidBM&#39;</span></code></pre></div>
 
 <p>仅仅生成临时文件名</p>
 
@@ -111,13 +108,12 @@ mkstemp返回的是文件描述和文件路径，并不常用，常用的是下�
 
 <p>tempfile.TemporaryFile 返回文件对象(file-like)用于临时数据保存。<strong>当文件对象被close或者被del的时候，临时文件将从磁盘上删除</strong></p>
 
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">time</span>
 <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryFile</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;w+r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;=============&quot;</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</code></pre></div>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></code></pre></div>
 
 <p>TemporaryFile并未在/tmp目录中创建临时文件，应该只存在与内存中.</p>
 

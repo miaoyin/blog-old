@@ -86,20 +86,18 @@
 
 <p>看看下面例子，下面的两个input比较，会相同吗.</p>
 
-<div class="highlight"><pre><code class="html"><span class="lineno">1</span> <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
 <span class="lineno">2</span>     <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;user_name&quot;</span><span class="nt">/&gt;</span>
 <span class="lineno">3</span>     <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;user_name&quot;</span><span class="nt">/&gt;</span>
-<span class="lineno">4</span> <span class="nt">&lt;/div&gt;</span>
-</code></pre></div>
+<span class="lineno">4</span> <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
 <p>它们不同</p>
 
-<div class="highlight"><pre><code class="html"><span class="lineno">1</span> $(function(){
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> $(function(){
 <span class="lineno">2</span>     var inputs = $(&quot;#content input&quot;)
 <span class="lineno">3</span>     console.info(inputs[0] == inputs[1]);  //false
 <span class="lineno">4</span>     console.info($(inputs[0]) == $(inputs[0])); //false
-<span class="lineno">5</span> });
-</code></pre></div>
+<span class="lineno">5</span> });</code></pre></div>
 
 <p>其实比较只有两种类型: 值类型和引用类型.<br>
 上面就是引用比较. jquery的$会产生新对象，每次的引用都不同，自然就不相等.<br>

@@ -78,20 +78,17 @@
 <div class="col-md-10">
     <p>经常遇到一种需求，需要把从数据库取出的数据，转为dict对象([{}, {},...]--&gt;dict)。</p>
 
-<div class="highlight"><pre><code class="bash"><span class="lineno">1</span> <span class="nv">rs</span> <span class="o">=</span> <span class="o">[{</span><span class="s2">&quot;user_id&quot;</span>:111, <span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;abc&quot;</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;user_id&quot;</span>:123, <span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;edf&quot;</span><span class="o">}]</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> <span class="nv">rs</span> <span class="o">=</span> <span class="o">[{</span><span class="s2">&quot;user_id&quot;</span>:111, <span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;abc&quot;</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;user_id&quot;</span>:123, <span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;edf&quot;</span><span class="o">}]</span>
 <span class="lineno">2</span> print dict<span class="o">(</span>map<span class="o">(</span>lambda r:<span class="o">[</span>r<span class="o">[</span><span class="s2">&quot;user_id&quot;</span><span class="o">]</span>, r<span class="o">]</span>, rs<span class="o">))</span>
-<span class="lineno">3</span> &gt;&gt;<span class="o">{</span>111: <span class="o">{</span><span class="s1">&#39;user_id&#39;</span>: 111, <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;abc&#39;</span><span class="o">}</span>, 123: <span class="o">{</span><span class="s1">&#39;user_id&#39;</span>: 123, <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;edf&#39;</span><span class="o">}}</span>
-</code></pre></div>
+<span class="lineno">3</span> &gt;&gt;<span class="o">{</span>111: <span class="o">{</span><span class="s1">&#39;user_id&#39;</span>: 111, <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;abc&#39;</span><span class="o">}</span>, 123: <span class="o">{</span><span class="s1">&#39;user_id&#39;</span>: 123, <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;edf&#39;</span><span class="o">}}</span></code></pre></div>
 
 <p>上面看起来比较啰嗦，换一种写法</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="k">print</span> <span class="nb">dict</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s">&quot;user_id&quot;</span><span class="p">],</span> <span class="n">r</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="k">print</span> <span class="nb">dict</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s">&quot;user_id&quot;</span><span class="p">],</span> <span class="n">r</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">)</span></code></pre></div>
 
 <p>更简洁的写法</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="p">{</span><span class="n">r</span><span class="p">[</span><span class="s">&#39;user_id&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="p">{</span><span class="n">r</span><span class="p">[</span><span class="s">&#39;user_id&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">}</span></code></pre></div>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">

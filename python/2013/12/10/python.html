@@ -78,7 +78,7 @@
 <div class="col-md-10">
     <p>输出以下内容</p>
 
-<div class="highlight"><pre><code class="bash">*
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">*
 ***
 *****
 *******
@@ -89,16 +89,14 @@
    *****
   *******
  *********
-***********
-</code></pre></div>
+***********</code></pre></div>
 
 <p>借用str的format可以方便的实现，但只有python2.6以上才支持</p>
 
-<div class="highlight"><pre><code class="python"><span class="lineno">1</span> <span class="n">f</span> <span class="o">=</span> <span class="s">&#39;{:&lt;11}&#39;</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="n">f</span> <span class="o">=</span> <span class="s">&#39;{:&lt;11}&#39;</span>
 <span class="lineno">2</span> <span class="k">print</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;*&#39;</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
 <span class="lineno">3</span> <span class="n">f</span> <span class="o">=</span> <span class="s">&#39;{:^11}&#39;</span>
-<span class="lineno">4</span> <span class="k">print</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;*&#39;</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
-</code></pre></div>
+<span class="lineno">4</span> <span class="k">print</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;*&#39;</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span></code></pre></div>
 
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">
