@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/jekyll/2015/03/27/jekyll-sitemap.html</loc>
-    <lastmod>2015-03-27T13:36:00+08:00</lastmod>
+    <loc>/jekyll/2015/04/06/jekyll.html</loc>
+    <lastmod>2015-04-06T16:22:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>/jekyll/2015/04/02/jekyll-sitemap.html</loc>
+    <lastmod>2015-04-02T13:36:00+08:00</lastmod>
   </url>
   <url>
     <loc>/jquery/2015/03/27/fileupload.html</loc>
@@ -722,10 +726,10 @@
   </url>
   <url>
     <loc>/google835eccdf8d46f0ac.html</loc>
-    <lastmod>2015-02-25T03:38:13+08:00</lastmod>
+    <lastmod>2015-04-02T10:06:01+08:00</lastmod>
   </url>
   <url>
     <loc>/baidu_verify_fk7KxxZA62.html</loc>
-    <lastmod>2015-02-25T03:38:13+08:00</lastmod>
+    <lastmod>2015-04-02T10:06:01+08:00</lastmod>
   </url>
 </urlset>
