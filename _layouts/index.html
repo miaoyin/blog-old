@@ -1,6 +1,7 @@
 --- 
 layout:  header
 --- 
+
 <div class="container">
   <div class="row">
     <!-- Blog Entries Column -->
@@ -10,6 +11,7 @@ layout:  header
     <!-- Blog Sidebar Widgets Column -->
     <div class="col-md-3" id="aside">
       <!-- Blog Categories Well -->
+      <!--
       <div class="well">
         <h4>分 类</h4>
         <div class="row list-group">
@@ -17,8 +19,12 @@ layout:  header
             <a href="/categories.html#{{cat | first}}" class="list-group-item">{{cat | first}} <span class="badge">{{cat|last|size}}</span></a>
             {% endfor %}
         </div>
-        <!-- /.row -->
       </div>
+      -->
+      <div class="well">
+      {% include category_cloud.html %}
+      </div>
+
       <!-- Blog Links Well -->
       <div class="well">
         <h4>链接</h4>
