@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "启动jekyll出现undefined method `relative_path`"
-date: "2015-03-27 13:36"
+date: "2015-04-02 13:36"
 category: "jekyll"
 --- 
 安装jekyll-sitemap后，启动jekyll出现下面错误
