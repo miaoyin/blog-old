@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "django文档读起来真痛苦"
+title: "django文档..."
 date: "2015-05-25 09:21"
 category: "django"
 ---
@@ -11,7 +11,7 @@ http://webpy.org/cookbook/index.zh-cn
 * django文档  
 http://djangobook.py3k.cn/
 
-比较两个文档，有什么感受？前者是技术文档，简洁明了； 后者...，怀疑写这个的人，不是搞技术的.
+比较两个文档，有什么感受？前者简洁明了； 后者...，怀疑写这个的人，不是搞技术的.
 
 
 
