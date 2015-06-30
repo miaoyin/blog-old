@@ -50,6 +50,6 @@ tornado.ioloop.IOLoop.instance().start()
 # 触发器比较
 str(job.trigger) != str(trigger)
 # 修改触发器
-sched.modify_job(job.id, trigger=trigger)
+sched.reschedule_job(job.id, trigger=trigger)
 {% endhighlight %}
 
