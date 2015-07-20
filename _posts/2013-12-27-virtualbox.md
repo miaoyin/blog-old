@@ -6,12 +6,14 @@ category: "virtualbox"
 ---
 
 在安装virtualbox的增强功能时出现错误
-{% highlight bash %}
+
+```bash
 Building the main Guest Additions module [失败]
-{% endhighlight %}
- 
+```
+
 查看日志找到原因，缺少依赖
-{% highlight bash %}
+
+```
 Uninstalling modules from DKMS
 Attempting to install using DKMS
  
@@ -26,15 +28,18 @@ Failed to install using DKMS, attempting to install without
 /tmp/vbox.0/Makefile.include.header:97: *** Error: unable to find the sources of your current Linux kernel. Specify KERN_DIR=<directory> and run Make again。 停止。
 Creating user for the Guest Additions.
 Creating udev rule for the Guest Additions kernel module.
-{% endhighlight %}
+```
+
 安装缺少的模块
-{% highlight bash %}
+
+```bash
 sudo yum install dkms kernel-devel
-{% endhighlight %}
+```
 应该是在编译一些东西，可能需要先安装gcc
- 
+
 验证是否成功
-{% highlight bash %}
+
+```
 sudo /etc/init.d/vboxadd setup
-{% endhighlight %}
+```
 
