@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>/%E4%BA%91%E8%AE%A1%E7%AE%97/2015/11/13/vagrant.html</loc>
+    <lastmod>2015-11-13T14:10:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>/python/2015/11/13/paramiko.html</loc>
+    <lastmod>2015-11-13T10:45:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>/linux/2015/11/13/salt.html</loc>
+    <lastmod>2015-11-13T10:27:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>/linux/2015/11/10/ssh-ask.html</loc>
+    <lastmod>2015-11-10T15:43:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>/calamri/2015/11/04/calamri-denied.html</loc>
+    <lastmod>2015-11-04T10:50:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>/python/2015/09/09/gettext.html</loc>
+    <lastmod>2015-09-09T16:15:00+08:00</lastmod>
+  </url>
+  <url>
     <loc>/django/2015/07/22/login_required.html</loc>
     <lastmod>2015-07-22T15:11:00+08:00</lastmod>
   </url>
@@ -494,6 +518,6 @@
   </url>
   <url>
     <loc>/google835eccdf8d46f0ac.html</loc>
-    <lastmod>2015-04-06T16:53:13+08:00</lastmod>
+    <lastmod>2015-12-16T03:25:11+08:00</lastmod>
   </url>
 </urlset>
