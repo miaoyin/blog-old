@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>/python/2015/12/16/scheduler.html</loc>
+    <lastmod>2015-12-16T03:31:00+08:00</lastmod>
+  </url>
+  <url>
     <loc>/%E4%BA%91%E8%AE%A1%E7%AE%97/2015/11/13/vagrant.html</loc>
     <lastmod>2015-11-13T14:10:00+08:00</lastmod>
   </url>
@@ -518,6 +522,6 @@
   </url>
   <url>
     <loc>/google835eccdf8d46f0ac.html</loc>
-    <lastmod>2015-12-16T03:25:11+08:00</lastmod>
+    <lastmod>2015-12-16T03:27:34+08:00</lastmod>
   </url>
 </urlset>
