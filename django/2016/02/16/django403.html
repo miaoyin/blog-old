@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      gettext国际化用法示例
+      angluarjs+django出现http 403(Forbidden)错误
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -75,12 +75,12 @@
             <!-- Blog Post -->
 <!-- Title -->
 <h2>
-  gettext国际化用法示例
+  angluarjs+django出现http 403(Forbidden)错误
   <div class="post-date">
         妙音 posted @
         <span class="glyphicon glyphicon-time"></span>
-        2015-09-09 16:15
-        in python with tags 国际化
+        2016-02-16 12:57
+        in django with tags 
   </div>
 </h2>
 <!-- Author -->
@@ -88,85 +88,53 @@
 
 <div class="col-md-10">
     <ul>
-<li>安装gettext</li>
+<li>angularjs向django提交post请求，出现http 403错误</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo yum install gettext
+<div class="highlight"><pre><code class="language-text" data-lang="text">Forbidden (CSRF cookie not set.): /user/add/
+[15/Feb/2016 02:05:24] &quot;POST /user/add/ HTTP/1.1&quot; 403 2629
 </code></pre></div>
 <ul>
-<li>gettext工具</li>
+<li>发送post请求代码</li>
 </ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">myModule.factory(&#39;user&#39;, function($resource) {
+    return $resource(&#39;user&#39;, null,{
+            add: {method:&#39;POST&#39;, &quot;/user/add/&quot;}
+    });
+});
 
-<p>gettext: 进行translate。</p>
-
-<p>xgettext: 从程序中抽取调用gettext进行本地化的字符串，生成一份.po结尾的配置文件。</p>
-
-<p>msgfmt: 将配置好的本地化配置文件进行转换成gettext使用的格式。</p>
-
-<ul>
-<li>准备demo.py</li>
-</ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">#encoding=utf-8
-import gettext
-
-# demo对应mo文件名，locale为locale目录地址，zh_CN为locale目录下目录名
-zh = gettext.translation(&quot;demo&quot;, &quot;locale&quot;, languages=[&quot;zh_CN&quot;])
-# 激活_()
-zh.install(True)
-print _(&quot;hello world&quot;)
+function ($scope, user) {
+    user.add($scope.project, function (success) {
+            console.log(&#39;success&#39;);
+        },
+        function (error) {
+            console.log(&#39;error&#39;);
+        });
+}
 </code></pre></div>
 <ul>
-<li>生成po文件</li>
+<li>解决方法</li>
 </ul>
-
-<p>从程序文件中抽取，使用gettext的字符串，生成po文件</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">xgettext -L python -o zh_CN.po demo.py
+<div class="highlight"><pre><code class="language-text" data-lang="text">var app = angular.module(&#39;yourApp&#39;);
+app.config([&#39;$httpProvider&#39;, function($httpProvider) {
+    $httpProvider.defaults.xsrfCookieName = &#39;csrftoken&#39;;
+    $httpProvider.defaults.xsrfHeaderName = &#39;X-CSRFToken&#39;;
+}]);
 </code></pre></div>
 <ul>
-<li>编辑po文件</li>
+<li>官方参考文档</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">...
-#修改编码为utf-8
-&quot;Content-Type: text/plain; charset=utf-8\n&quot;
-...
-
-#加上翻译
-#: demo.py:6
-msgid &quot;hello world&quot;
-msgstr &quot;你好，世界&quot;
-</code></pre></div>
-<ul>
-<li>创建locale目录</li>
-</ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">mkdir -p locale/zh_CN/LC_MESSAGES
-</code></pre></div>
-<ul>
-<li>编译po文件</li>
-</ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">msgfmt -o ~/locale/zh_CN/LC_MESSAGES/demo.mo zh_CN.po
-</code></pre></div>
-<ul>
-<li>查看结果</li>
-</ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">➜  ~  python demo.py
-你好，世界
+<div class="highlight"><pre><code class="language-text" data-lang="text">http://docs.angularjs.cn/api/ng/provider/$httpProvider
 </code></pre></div>
     <br/>
     <div style="margin-top:10px;margin-bottom:10px">
       
       <span class="next">
         上篇：
-        <a href="/django/2015/07/22/login_required.html">
-          django-restful请求的访问限制
+        <a href="/python/2015/12/16/apscheduler.html">
+          apscheduler提示maximum错误
         </a>
       </span>
        
-      
-      <span class="prev">
-        下篇：
-        <a href="/calamri/2015/11/04/calamri-denied.html">
-          calmari日志提示OperationalError Permission denied
-        </a>
-      </span>
       
     </div>
     <hr>
