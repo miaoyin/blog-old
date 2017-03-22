@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "subprocess.Popen的参数close_fds=True与stdin/stdout/stderr不能共存"
+title: "close_fds=True与stdin/stdout/stderr不能共存"
 date: "2017-03-17 18:31"
-category: ["python", "windows"]
-tag: "subprocess"
+category: ["python"]
+tags: ["subprocess", "windows"]
 ---
 
 
