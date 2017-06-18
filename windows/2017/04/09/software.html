@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      学佛
+      windows命令查看软件安装列表
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -71,20 +71,57 @@
     <div class="container">
       <div class="content">
           <div class="row">
-            <!--《极乐世界是我家》-->
-<iframe width="560" height="420" src="http://player.youku.com/embed/XMzc4MjMxMjgw" frameborder=0 allowfullscreen></iframe>
+            <!-- Blog Post -->
+<!-- Title -->
+<h2>
+  windows命令查看软件安装列表
+  <div class="post-date">
+        妙音 posted @
+        <span class="glyphicon glyphicon-time"></span>
+        2017-04-09 14:12
+        in windows with tags windowspowershell
+  </div>
+</h2>
+<!-- Author -->
+<hr>
 
+<div class="col-md-10">
+    <p>在windows上，可以通过控制面板，查看软件安装情况。那么除此之外还有其它方法吗？</p>
 
-<!-- 佛说阿弥陀经 -->
+<ul>
+<li>powershell命令</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">PS C:\Users\wyq&gt; Get-WmiObject -class Win32_Product |Select-Object -Property name,version
 
-<iframe width="560" height="420" src="http://player.youku.com/embed/XMzEyNzc4NjY0" frameborder=0 allowfullscreen></iframe>
-
-
-<!-- 佛说大乘无量寿庄严清净平等觉经 -->
-<iframe width="560" height="420" src="http://player.youku.com/embed/XMTE4ODE3NDcy" frameborder=0 allowfullscreen></iframe>
-
-
-
+name                                                                                                 version
+----                                                                                                 -------
+Microsoft Visual C++ Compiler Package for Python 2.7                                                 9.0.1.30729
+Microsoft .NET Framework 4.5.1 Multi-Targeting Pack                                                  4.5.50932
+Microsoft Visual C++  x64-x86 Cross Compilers - CHS Resources                                        12.0.21005
+Microsoft SQL Server 2012 T-SQL Language Service                                                     11.1.3000.0
+....
+</code></pre></div>
+    <br/>
+    <div style="margin-top:10px;margin-bottom:10px">
+      
+      <span class="next">
+        上篇：
+        <a href="/storage/2017/03/22/Get-Volume.html">
+          查看windows磁盘剩余空间
+        </a>
+      </span>
+       
+      
+    </div>
+    <hr>
+    <!-- Blog Comments -->
+    <div class="media">
+        <!-- UY BEGIN -->
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1965284"></script>
+        <!-- UY END -->
+    </div>
+</div>
 
           </div>
       </div>

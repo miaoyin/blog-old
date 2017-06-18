@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      学佛
+      查看windows磁盘剩余空间
     </title>
     <!--
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" media="screen" />
@@ -71,20 +71,59 @@
     <div class="container">
       <div class="content">
           <div class="row">
-            <!--《极乐世界是我家》-->
-<iframe width="560" height="420" src="http://player.youku.com/embed/XMzc4MjMxMjgw" frameborder=0 allowfullscreen></iframe>
+            <!-- Blog Post -->
+<!-- Title -->
+<h2>
+  查看windows磁盘剩余空间
+  <div class="post-date">
+        妙音 posted @
+        <span class="glyphicon glyphicon-time"></span>
+        2017-03-22 22:00
+        in storage with tags windowspowershell
+  </div>
+</h2>
+<!-- Author -->
+<hr>
 
+<div class="col-md-10">
+    <p>在powershell中运行Get-Volume</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">PS C:\Users\Administrator&gt; Get-Volume
 
-<!-- 佛说阿弥陀经 -->
-
-<iframe width="560" height="420" src="http://player.youku.com/embed/XMzEyNzc4NjY0" frameborder=0 allowfullscreen></iframe>
-
-
-<!-- 佛说大乘无量寿庄严清净平等觉经 -->
-<iframe width="560" height="420" src="http://player.youku.com/embed/XMTE4ODE3NDcy" frameborder=0 allowfullscreen></iframe>
-
-
-
+DriveLetter FileSystemLabel FileSystem DriveType HealthStatus OperationalStatus SizeRemaining      Size
+----------- --------------- ---------- --------- ------------ ----------------- -------------      ----
+G                           NTFS       Fixed     Healthy      OK                    320.86 GB 372.61 GB
+            系统保留        NTFS       Fixed     Healthy      OK                    301.87 MB    350 MB
+C                           NTFS       Fixed     Healthy      OK                    881.36 GB 931.17 GB
+                            NTFS       Fixed     Healthy      OK                    931.31 GB 931.51 GB
+</code></pre></div>
+    <br/>
+    <div style="margin-top:10px;margin-bottom:10px">
+      
+      <span class="next">
+        上篇：
+        <a href="/python/2017/03/17/subprocess.html">
+          close_fds=True与stdin/stdout/stderr不能共存
+        </a>
+      </span>
+       
+      
+      <span class="prev">
+        下篇：
+        <a href="/windows/2017/04/09/software.html">
+          windows命令查看软件安装列表
+        </a>
+      </span>
+      
+    </div>
+    <hr>
+    <!-- Blog Comments -->
+    <div class="media">
+        <!-- UY BEGIN -->
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1965284"></script>
+        <!-- UY END -->
+    </div>
+</div>
 
           </div>
       </div>
